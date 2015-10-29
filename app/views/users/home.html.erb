@@ -1,0 +1,130 @@
+
+<div class="banner">
+	<div class="background_image">
+	<%= current_user %>
+		<div class="section no-pad-bot" id="index-banner">
+		<div class="container">
+		<br><br>
+
+			<h1 class="header center banner_title"><strong>Get Your Score</strong></h1>
+				<div class="row center">
+					<h5 class="header col s12 light banner_text2">Use our scoring system to find a location that aligns with your interests.</h5>
+				</div>
+				<div class="row center">
+					<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+				</div>
+		<br><br>
+		</div>
+		</div>
+	</div>    <!-- background image -->
+</div>  <!-- end of banner 1 -->
+
+<!-- start of banner 2 -->
+<hr>
+<div class="container">
+  <h3>Your score is..!</h3>
+  <p>dynamic banner will go here</p>
+</div>
+<hr>
+<div class="row">
+	<div class="col s3">
+		<p>Rank your interests from highest to lowest and find out your walking score.</p>
+	<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+
+		<div class="test_guy">
+			<!-- <ul>
+			  <li id="draggable" class="ui-state-highlight">Drag me down</li>
+			</ul> -->
+
+
+
+			<ul id="sortable">
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="7"></span>Food</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="6"></span>Museums and Art</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="5"></span>Shopping</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="4"></span>Health & Fitness</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="3"></span>Transit Access</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="2"></span>Clubs and Bars</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="1"></span>Faith</li>
+			</ul>
+				<input type="submit" id="interest">
+		</div>
+	</div>
+
+	<div class="col s9">
+		<div class="temp"></div>
+		<!-- <div id="map-canvas">
+			image of google maps
+		</div> -->
+		<input type="submit" value="testing" class="test">
+	</div>
+</div> <!-- end of middle banner row -->
+
+
+
+ <script>
+ $(document).ready(function(){
+  $(function() {
+    $( "#sortable" ).sortable({
+      revert: true
+    });
+    $( "#draggable" ).draggable({
+      connectToSortable: "#sortable",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "ul", "li" ).disableSelection();
+  });
+
+
+});
+
+
+  </script>
+
+<!-- 
+
+
+	<form action="/interests" method="post" class="col s12">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<div class="row">
+			<div class="col s6 offset-s3 grid-example">
+				<input name="food" id="food" type="text" class="validate">
+				<label for="food">Food</label>
+			</div>
+			<div class="col s6 offset-s3 grid-example">
+				<input name="culture" id="culture" type="text" class="validate">
+				<label for="culture">Culture</label>
+			</div>
+	
+			<div class="col s6 offset-s3 grid-example">
+				<input name="religion" id="religion" type="text" class="validate">
+				<label for="religion">Faith</label>
+			</div>
+			<div class="col s6 offset-s3 grid-example">
+				<input name="health" id="health" type="text" class="validate">
+				<label for="health">Health</label>
+			</div>
+			<div class="col s6 offset-s3 grid-example">
+				<input name="nightlife" id="nightlife" type="text" class="validate">
+				<label for="nightlife">Nightlife</label>
+			</div>
+			<div class="col s6 offset-s3 grid-example">
+				<input name="shopping" id="shopping" type="text" class="validate">
+				<label for="shopping">Shopping</label>
+			</div>
+			<div class="col s6 offset-s3 grid-example">
+				<input name="transportation" id="transportation" type="text" class="validate">
+				<label for="transportation">Transportation</label>
+			</div>
+			<div class="col s6 offset-s3 grid-example">
+				<input name="outdoor" id="outdoor" type="text" class="validate">
+				<label for="outdoor">Outdoor</label>
+				<p>	<input type="submit" value="Check"></p>
+			</div>
+			</div>
+
+		</div>
+	</form>
+
+ -->

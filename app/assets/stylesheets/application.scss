@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *
+ *= require jquery-ui
+ *= require_tree .
+ *= require_self
+ */
+@import "materialize";
+@import "materialize/extras/nouislider";
+
+
+
+.nav-wrapper {
+  background-color: whitesmoke;
+}
+.logo {
+	color: rgb(248, 156, 0);
+}
+
+.banner_title {
+	color:white;
+}
+.banner_text2 {
+	color: white;
+}
+.banner {
+	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/e0/4d/9d/e04d9d29c3bf0b1f73eaa6ae88088c1f.gif");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.background_image {
+	background: rgba(0, 0,0, 0.55);
+	height: 550px;
+}
+
+.interests {
+	height: 500px;
+}
+
+.test_guy {
+
+	max-width: 800px;
+	width: 80%;
+	margin:  0 auto;
+}
+
+#map-canvas{
+	height:550px;
+	}
+
+
+
+ // #sortable { list-style-type: none; margin: 0; padding: 0; }
+ // #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+ // #sortable li span { position: absolute; margin-left: -1.3em; }
+
+.footer {
+	background-color: rgba(248, 165, 0, 1)
+}
+.temp {
+	background-image: url("http://www.appelsiini.net/assets/2008/5/26/tartu.png");
+	background-repeat: no-repeat;
+	height: 550px;
+	background-size: 100%;
+
+}
+
+
+
+
