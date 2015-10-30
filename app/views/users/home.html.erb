@@ -1,105 +1,113 @@
 
-<div class="banner">
+<div class="banner1">
 	<div class="background_image">
-	<%= current_user %>
+		<%= current_user %>
 		<div class="section no-pad-bot" id="index-banner">
-		<div class="container banner1_text">
-		<br><br>
-
-			<h1 class="header center banner_title"><strong>Get Your Score</strong></h1>
+			<div class="container banner1_text">
+				<h1 class="header center banner_title"><strong>Know Your Surroundings</strong></h1>
 				<div class="row center">
-					<h4 class="header col s12 light banner_text2">Rank your interests. Pin a location. Get MyRadius score.</h4>
-				</div>
-				<div class="row center">
+					<h4 class="header col s12 light banner1_text2">Rank your interests. Pick a location. Get VentureScore.</h4>
 					<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Start Now</a>
 				</div>
-		<br><br>
-		</div>
+			</div>
 		</div>
 	</div>    <!-- background image -->
 </div>  <!-- end of banner 1 -->
 
 <!-- start of banner 2 -->
 
-<div class="banner2">
+<!-- <div class="banner2">
 	<div class="container">
 		<div class="center_banner_text col s6 offset-s3 grid-example">
-	<!--   		<h3>Your score is..!</h3> -->
-	  	</div>
-	</div>
-
-<div class="banner3">
-	<div class="row">
-		<div class="col s3 sidebar_text">
-			<h5>Rank your interests from highest to lowest then pin a location on the map.</h5>
-		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-		<div class="valign-wrapper">
-			<div class="test_guy">
-				<ul id="sortable">
-
-					<li class="interest_text z-depth-3"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
-					<li class="interest_text z-depth-3"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
-					<li class="interest_text z-depth-3"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
-					<li class="interest_text z-depth-3"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
-					<li class="interest_text z-depth-3"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
-					<li class="interest_text z-depth-3"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
-					<li class="interest_text z-depth-3"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
-
-					<!-- <li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="food"></span>Food</li>
-					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="culture"></span>Culture</li>
-					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="shopping"></span>Shopping</li>
-					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="health"></span>Health & Fitness</li>
-					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="transportation"></span>Transportation</li>
-					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="nightlife"></span>Nightlife</li>
-					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="faith"></span>Faith</li>
-	 -->
-				</ul>
-					<input class="waves-effect waves-light btn" type="submit" id="interest">
-			</div>
+			
 		</div>
 	</div>
+</div> -->
 
+	<div class="banner3">
+		<div class="row">
+			<div class="col s3 sidebar_text">
+				<p>1. Drag and drop to rank your interests from highest to lowest</p>
+				<div class="test_guy">
+					<ul id="sortable">
+						<!-- added name to "li" -->
+						<li class="interest_text z-depth-3" name="food"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
+						<li class="interest_text z-depth-3" name="culture"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
+						<li class="interest_text z-depth-3" name="shopping"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
+						<li class="interest_text z-depth-3" name="health"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
+						<li class="interest_text z-depth-3" name="transportation"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
+						<li class="interest_text z-depth-3" name="nightlife"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
+						<li class="interest_text z-depth-3" name="faith"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
+
+				<!-- <li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="food"></span>Food</li>
+				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="culture"></span>Culture</li>
+				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="shopping"></span>Shopping</li>
+				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="health"></span>Health & Fitness</li>
+				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="transportation"></span>Transportation</li>
+				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="nightlife"></span>Nightlife</li>
+				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="faith"></span>Faith</li>
+			-->
+				</ul>
+		
+				</div>  
+
+				<h5>2. Enter your location</h5>
+				<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+
+				<button class="btn waves-effect waves-light interest_button" type="submit" id="interest" name="action">Submit
+					<i class="material-icons right">send</i></button>
+			</div>  <!-- end of test-guy col3 -->
 		<div class="col s9">
 			<!-- <div class="temp"></div> -->
-			<div id="map-canvas"></div>
-		
+			<div id="map-canvas">
+			</div>
+										
+							    			<div id="container-rpm"></div>
+									
+		</div>  <!--  end of col 9 -->
+	</div> <!-- end of row -->
+</div>  <!-- end of banner 3 -->
+<div class="row">
+	<div class="col 8 offset-s4 grid-example">
+	<div id="checkboxes">
+	<form action="#">
+		<p>
+			<input type="checkbox" class="filled-in" id="selectall" name="all"  />
+			<label for="selectall">Select all</label>
+			<!-- </p>
+			<p> -->
+			<input type="checkbox" class="filled-in" id="filled-in-box1" name="food"  />
+			<label for="filled-in-box1">Food</label>
+			<!-- </p>
+			<p> -->
+			<input type="checkbox" class="filled-in" id="filled-in-box2" name="culture"  />
+			<label for="filled-in-box2">Culture</label>
+			<!-- </p>
+			<p> -->
+			<input type="checkbox" class="filled-in" id="filled-in-box3" name="nightlife" />
+			<label for="filled-in-box3">Night Life</label>
+			<!-- </p>
+			<p> -->
+			<input type="checkbox" class="filled-in" id="filled-in-box4" name="shopping"/>
+			<label for="filled-in-box4">Shopping</label>
+			<!-- </p>
+			<p> -->
+			<input type="checkbox" class="filled-in" id="filled-in-box5" name="transportation" />
+			<label for="filled-in-box5">Transportation</label>
+			<!-- </p>
+			<p> -->
+			<input type="checkbox" class="filled-in" id="filled-in-box6" name="religion" />
+			<label for="filled-in-box6">Faith</label>
+			<!-- <p>
+			</p> -->
+			<input type="checkbox" class="filled-in" id="filled-in-box7" name="outdoor" />
+			<label for="filled-in-box7">Outdoor</label>
+			</p>
+		</div>
+	</form>
+	</div>
 </div>
 
-		<div class="col 7 offset-s5 grid-example">
-				<div class="checkboxes">
-					<p>
-						<input type="checkbox" class="filled-in" id="filled-in-box" name="food"/>
-						<label for="filled-in-box">Food</label>
-					<!-- </p>
-					<p> -->
-						<input type="checkbox" class="filled-in" id="filled-in-box" name="cutlure" />
-						<label for="filled-in-box">Culture</label>
-					<!-- </p>
-					<p> -->
-						<input type="checkbox" class="filled-in" id="filled-in-box" name="nightlife" />
-						<label for="filled-in-box">Night Life</label>
-					<!-- </p>
-					<p> -->
-						<input type="checkbox" class="filled-in" id="filled-in-box" name="shopping"/>
-						<label for="filled-in-box">Shopping</label>
-					<!-- </p>
-					<p> -->
-						<input type="checkbox" class="filled-in" id="filled-in-box" name="transportation" />
-						<label for="filled-in-box">Transportation</label>
-					<!-- </p>
-					<p> -->
-						<input type="checkbox" class="filled-in" id="filled-in-box" name="religion" />
-						<label for="filled-in-box">Faith</label>
-					<!-- <p>
-					</p> -->
-						<input type="checkbox" class="filled-in" id="filled-in-box" name="outdoor" />
-						<label for="filled-in-box">Outdoor</label>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div> <!-- end of middle banner row -->
-</div>
 <!-- <nav>
   <ul class="left hide-on-med-and-down show side_nav_width">
     <li><a href="#!">First Sidebar Link</a></li>
@@ -112,25 +120,177 @@
   <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
 </nav> -->
 
- <script>
- $(document).ready(function(){
-  $(function() {
-    $( "#sortable" ).sortable({
-      revert: true
+<script>
+$(document).ready(function(){
+	$(function() {
+		$( "#sortable" ).sortable({
+			revert: true
+		});
+		$( "#draggable" ).draggable({
+			connectToSortable: "#sortable",
+			helper: "clone",
+			revert: "invalid"
+		});
+		$( "ul", "li" ).disableSelection();
+	});
+
+    $("#selecctall").change(function(){
+      $(".filled-in").prop('.checked', $(this).prop(".checked"));
     });
-    $( "#draggable" ).draggable({
-      connectToSortable: "#sortable",
-      helper: "clone",
-      revert: "invalid"
-    });
-    $( "ul", "li" ).disableSelection();
-  });
+
+    $(function () {
+
+    var gaugeOptions = {
+
+        chart: {
+            type: 'solidgauge'
+        },
+
+        title: null,
+
+        pane: {
+            center: ['50%', '85%'],
+            size: '140%',
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc'
+            }
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        // the value axis
+        yAxis: {
+            stops: [
+                [0.1, '#55BF3B'], // green
+                [0.5, '#DDDF0D'], // yellow
+                [0.9, '#DF5353'] // red
+            ],
+            lineWidth: 0,
+            minorTickInterval: null,
+            tickPixelInterval: 400,
+            tickWidth: 0,
+            title: {
+                y: -70
+            },
+            labels: {
+                y: 16
+            }
+        },
+
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true
+                }
+            }
+        }
+    };
+
+    // The speed gauge
+    $('#container-speed').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 200,
+            title: {
+                text: 'Speed'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'Speed',
+            data: [80],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">km/h</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ' km/h'
+            }
+        }]
+
+    }));
+
+    // The RPM gauge
+    $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 5,
+            title: {
+                text: 'RPM'
+            }
+        },
+
+        series: [{
+            name: 'RPM',
+            data: [1],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">* 1000 / min</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ' revolutions/min'
+            }
+        }]
+
+    }));
+
+    // Bring life to the dials
+    setInterval(function () {
+        // Speed
+        var chart = $('#container-speed').highcharts(),
+            point,
+            newVal,
+            inc;
+
+        if (chart) {
+            point = chart.series[0].points[0];
+            inc = Math.round((Math.random() - 0.5) * 100);
+            newVal = point.y + inc;
+
+            if (newVal < 0 || newVal > 200) {
+                newVal = point.y - inc;
+            }
+
+            point.update(newVal);
+        }
+
+        // RPM
+        chart = $('#container-rpm').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+            inc = Math.random() - 0.5;
+            newVal = point.y + inc;
+
+            if (newVal < 0 || newVal > 5) {
+                newVal = point.y - inc;
+            }
+
+            point.update(newVal);
+        }
+    }, 2000);
 
 
 });
 
+});
 
-  </script>
+
+</script>
 
 <!-- 
 
@@ -177,4 +337,4 @@
 		</div>
 	</form>
 
- -->
+-->

@@ -39,33 +39,42 @@ html {
 
 .banner_title {
 	color:white;
+	margin-top: 180px;
+	font-size: 80px;
 
 }
-.banner_text2 {
+.banner1_text2 {
 	color: white;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
 .center_banner_text {
 	text-align: center;
 }
 
-.banner {
+.banner1 {
 	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/e0/4d/9d/e04d9d29c3bf0b1f73eaa6ae88088c1f.gif");
 	background-repeat: no-repeat;
 	background-size: 100%;
+	height: 100vh;
+	min-height: 600px;
 }
 
 .background_image {
 	background: rgba(0, 0,0, 0.55);
-	height: 600px;
+	height: 100vh;
+	min-height: 600px;
 }
 
 .banner2 {
 	background-color: whitesmoke;
-	margin-top: -20px;
-	height: 75px;
+	height: 100vh;
+	min-height: 600px;
 }
 .banner3 {
 	background-color: whitesmoke;
+	height: 100vh;
+	min-height: 600px;
 }
 
 // sidebar
@@ -75,8 +84,13 @@ html {
 .interests {
 	height: 500px;
 }
-.sidebar_text h5 {
+.sidebar_text p {
+	font-size: 20px;
 	padding:15px;
+	text-align: center;
+}
+
+.interest_button {
 	text-align: center;
 }
 
@@ -113,9 +127,13 @@ html {
 
 #map-canvas{
 	height:600px;
-	color: #E5D975
 	}
-
+#container-rpm{
+	width: 300px;
+	height: 200px;
+	float: left;
+	background-color: transparent;
+}
 
 
  // #sortable { list-style-type: none; margin: 0; padding: 0; }
@@ -124,7 +142,6 @@ html {
 
 .footer {
 	padding-top: 50px;
-	background-color: whitesmoke;
 	height: 50px;
 	text-align: center;
 }
