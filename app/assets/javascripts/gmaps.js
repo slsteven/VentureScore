@@ -104,7 +104,7 @@ $(document).ready(function(){
 				case "faith":
 					//block
 					var searchObj = {
-						query:"church",
+						query:"religion",
 						location:current_location,
 						radius:1000,
 						types:["church","mosque","synagogue","hindu_temple","place_of_worship"],
@@ -228,19 +228,19 @@ $(document).ready(function(){
 		var total = 0
 		for(key in sums){
 			if(sums[key][1] == 1){
-				total += sums[key][0] * 0.2254
+				total += sums[key][0] * 0.35/*0.2254*/
 			}
 			else if(sums[key][1] == 2){
-				total += sums[key][0] * 0.1979
+				total += sums[key][0] * 0.3 /*0.1979*/
 			}
 			else if(sums[key][1] == 3){
-				total += sums[key][0] * 0.1703
+				total += sums[key][0] * 0.25 /*0.1703*/
 			}
 			else if(sums[key][1] == 4){
-				total += sums[key][0] * 0.1428
+				total += sums[key][0] * 0.2 /*0.1428*/
 			}
 			else if(sums[key][1] == 5){
-				total += sums[key][0] * 0.1153
+				total += sums[key][0] * 0.15 /*0.1153*/
 			}
 			else if(sums[key][1] == 6){
 				total += sums[key][0] * 0.0879
@@ -258,16 +258,16 @@ $(document).ready(function(){
 			value = 5
 		}
 		else if (distance < 1209){
-			value = 4
+			value = 4.5
 		}
 		else if (distance < 1814){
-			value = 3
+			value = 4
 		}
 		else if (distance < 2401){
-			value = 2
+			value = 3.5
 		}
 		else{
-			value = 1
+			value = 3
 		};
 	
 		return value;	
@@ -342,7 +342,7 @@ $(document).ready(function(){
     });
 	function showScore(score){
 		infowindow.open(map, marker);
-		infowindow.setContent("<h1>"+score+"</h1>")
+		infowindow.setContent("<h1>"+score+"/100</h1>")
 		 // The RPM gauge
 	    $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
 	        yAxis: {
