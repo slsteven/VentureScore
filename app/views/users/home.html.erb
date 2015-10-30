@@ -38,17 +38,7 @@
 						<li class="interest_text z-depth-3" name="transportation"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
 						<li class="interest_text z-depth-3" name="nightlife"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
 						<li class="interest_text z-depth-3" name="faith"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
-
-				<!-- <li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="food"></span>Food</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="culture"></span>Culture</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="shopping"></span>Shopping</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="health"></span>Health & Fitness</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="transportation"></span>Transportation</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="nightlife"></span>Nightlife</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="faith"></span>Faith</li>
-			-->
-				</ul>
-		
+					</ul>
 				</div>  
 
 				<h5>2. Enter your location</h5>
@@ -61,8 +51,7 @@
 			<!-- <div class="temp"></div> -->
 			<div id="map-canvas">
 			</div>
-										
-							    			<div id="container-rpm"></div>
+			<div id="container-rpm"></div>
 									
 		</div>  <!--  end of col 9 -->
 	</div> <!-- end of row -->
@@ -154,10 +143,11 @@ $(document).ready(function(){
             startAngle: -90,
             endAngle: 90,
             background: {
-                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                backgroundColor: 'transparent',
                 innerRadius: '60%',
                 outerRadius: '100%',
                 shape: 'arc'
+
             }
         },
 
@@ -195,34 +185,6 @@ $(document).ready(function(){
         }
     };
 
-    // The speed gauge
-    $('#container-speed').highcharts(Highcharts.merge(gaugeOptions, {
-        yAxis: {
-            min: 0,
-            max: 200,
-            title: {
-                text: 'Speed'
-            }
-        },
-
-        credits: {
-            enabled: false
-        },
-
-        series: [{
-            name: 'Speed',
-            data: [80],
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:12px;color:silver">km/h</span></div>'
-            },
-            tooltip: {
-                valueSuffix: ' km/h'
-            }
-        }]
-
-    }));
 
     // The RPM gauge
     $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
@@ -230,7 +192,7 @@ $(document).ready(function(){
             min: 0,
             max: 5,
             title: {
-                text: 'RPM'
+                text: 'VentureScore'
             }
         },
 
