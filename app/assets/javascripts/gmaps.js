@@ -1,30 +1,161 @@
+/*Remember to check lengths and query amounts*/
+
+
 $(document).ready(function(){
 	
+	//When submit button is clicked,we 
+	$( "#interest" ).click(function(){
+		var ranking = create_search_array();
+		// console.log(ranking)
+		getResults(ranking,current_location);
+	});	
+	function getAllDistances(results){
+		console.log(results)
+		var distanceArr = [];
+		for(var i = 0;i<results.length;i++){
+			getDistance(results[i],current_location,function(params){
+				distanceArr.push(params)
+				if(distanceArr.length == 1){
+					testing(distanceArr);
+				}
+			})
+		}
+	}
 
+	function testing(results){
+		console.log(results)
+	}
+	
+	
 
-$( "#interest" ).click(function(){
-	var myVals = [];
-	$( 'span' ).each(function(){
-  	myVals.push($(this).attr('name'));
-	});
-
-	console.log(myVals);
- });
+	function getResults(ranking,current_location){
+		var results = [];
+		for (var i = 0;i<1/*ranking.length*/;i++){
+			switch(ranking[i].category){
+				case "food":
+					var searchObj = {
+						query: "resaurants, food, cafe,",
+						location:current_location,
+						radius: 1000,
+						types:["restaurant"],
+					}
+					performSearch(searchObj,function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "culture":
+					//block
+					var searchObj = {
+						query: "museum",
+						location: current_location,
+						radius: 1000,
+						types:["museum"],
+					}
+					performSearch(searchObj,function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "shopping":
+					//block
+					var searchObj = {
+						query: "shopping mall",
+						location: current_location,
+						radius: 1000,
+						types:["shopping_mall"],
+					}
+					performSearch(searchObj,function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "health":
+					//block
+					var searchObj = {
+						query:"park",
+						location:current_location,
+						radius: 1000,
+						types:["park"],
+					}
+					performSearch(searchObj,function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "transportation":
+					//block
+					var searchObj = {
+						query: "bus station",
+						location: current_location,
+						radius: 1000,
+						types:["bus_station"],
+					}
+					performSearch(searchObj,function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "nightlife":
+					//block
+					var searchObj = {
+						query: "nightclub",
+						location:current_location,
+						radius:1000,
+						types:["night_club"],
+					}
+					performSearch(searchObj,function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "faith":
+					//block
+					var searchObj = {
+						query:"church",
+						location:current_location,
+						radius:1000,
+						types:["church"],
+					}
+					performSearch(searchObj,function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				default:
+					return;
+			}
+		}
+	}
+	
+	// $('.test').on('click',function(){
+	// 	var coordArr; 		
+	// 	performSearch(current_location, function(param){
+	// 		coordArr = param;
+	// 		var algoArr;
+	// 		getDistance(coordArr,current_location,function(param){
+	// 			algoArr = param
+	// 			console.log(algoArr)
+	// 		})
+	// 	});
+	// });
 
 	initialize();
-	//USER THIS BLOCK TO GET PLACE DETAILS
-	// var det_request = {
-	// 	placeId: "ChIJP2AYtyd-j4AR-cNUt4A4wSY"
-	// }
-	// service.getDetails(det_request,function(place,status){
-	// 	console.log(place);
 
-	// })
-	// $('.test').on('click',function(){
-	// 	var input = $('#pac-input').val()
-	// 	console.log(input)
-
-	// })
 	var current_location;
 
 	var input = document.getElementById('pac-input'); //$('#pac-input').val()
@@ -86,19 +217,6 @@ $( "#interest" ).click(function(){
     infowindow.open(map, marker);
   });
 
-	// var test_coords = new google.maps.LatLng(37.7749295,-122.4194155)
-
-	$('.test').on('click',function(){
-		var coordArr; 		
-		performSearch(current_location, function(param){
-			coordArr = param;
-			var algoArr;
-			getDistance(coordArr,current_location,function(param){
-				algoArr = param
-				console.log(algoArr)
-			})
-		});
-	});
 });
 
 var map;
@@ -121,8 +239,12 @@ function initialize(){
 		var mapOptions = {
 			center: {lat: 40.524, lng: -97.884},
 			zoom: 4,
+
 			scrollwheel: false
 			
+
+			scrollwheel:false,
+
 		}
 
 	// };
@@ -144,18 +266,32 @@ function initialize(){
 
 }
 
+//returns an object that ranks all of the categories. this will be used for searching gmaps db
+function create_search_array(){
+	var myVals = [];
+	var count = 1
+	$( '.categories' ).each(function(){
+	  	myVals.push({
+	  		category: $(this).attr('name'),
+	  		rank: count,
+	  	});
+	  	count ++;
+	});
+	return myVals
+}
 
-function performSearch(coords, callback){
+
+function performSearch(text_request, callback){
 	//Location box should be dynamic and set based on the users location or input
 	// var locationBox = 
 
 	//Search obj for gMaps text search
-	text_request = {
-		query: "izakaya japanese food",
-		location: coords,
-		radius: 1000,
-		types: ["restaurant","bar","food"]
-	}
+	// text_request = {
+	// 	query: "izakaya japanese food",
+	// 	location: coords,
+	// 	radius: 1000,
+	// 	types: ["restaurant","bar","food"]
+	// }
 	// radar_request = {
 	// 	keyword: "izakaya japanese food",
 	// 	location: locationBox,
@@ -191,6 +327,8 @@ function getDistance(arr,origin,callback){
 	for(var i = 0; i<arr.length;i++){
 		destinationArr.push(new google.maps.LatLng(arr[i].lat,arr[i].lng));
 	};
+
+
 	//gMaps Method to Calculate distance between 2 coordinates
 	matrix.getDistanceMatrix({
 		origins: [origin],
@@ -204,6 +342,7 @@ function getDistance(arr,origin,callback){
 	    // avoidTolls: false,
 	},function(response,status){
 		if (status == google.maps.DistanceMatrixStatus.OK) {
+			console.log(response);
 			//there is only one origin point so we hard code the first element into var results
 		    var results = response.rows[0].elements;
 		    //next we iterate through the destination results and store all distance values into
