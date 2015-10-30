@@ -24,34 +24,26 @@
 <div class="banner2">
 	<div class="container">
 		<div class="center_banner_text col s6 offset-s3 grid-example">
-	  		<h3>Your score is..!</h3>
-	  		  <div class="chip">
-    				Tag
-    			<i class="material-icons">close</i>
-  				</div>
-  				  <div class="chip">
-    Tag
-    <i class="material-icons">close</i>
-  </div>
+	<!--   		<h3>Your score is..!</h3> -->
 	  	</div>
 	</div>
-	<hr>
 
+<div class="banner3">
 	<div class="row">
 		<div class="col s3 sidebar_text">
-			<p>Rank your interests from highest to lowest then pin a location on the map.</p>
+			<h5>Rank your interests from highest to lowest then pin a location on the map.</h5>
 		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
 		<div class="valign-wrapper">
 			<div class="test_guy">
 				<ul id="sortable">
 
-					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
-					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
-					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
-					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
-					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
-					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
-					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
+					<li class="interest_text z-depth-3"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
+					<li class="interest_text z-depth-3"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
+					<li class="interest_text z-depth-3"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
+					<li class="interest_text z-depth-3"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
+					<li class="interest_text z-depth-3"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
+					<li class="interest_text z-depth-3"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
+					<li class="interest_text z-depth-3"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
 
 					<!-- <li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="food"></span>Food</li>
 					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="culture"></span>Culture</li>
@@ -65,14 +57,46 @@
 					<input class="waves-effect waves-light btn" type="submit" id="interest">
 			</div>
 		</div>
-		</div>
+	</div>
+
 		<div class="col s9">
-
 			<!-- <div class="temp"></div> -->
-			<div id="map-canvas">
-				image of google maps
-			</div>
+			<div id="map-canvas"></div>
+		
+</div>
 
+		<div class="col 7 offset-s5 grid-example">
+				<div class="checkboxes">
+					<p>
+						<input type="checkbox" class="filled-in" id="filled-in-box" name="food"/>
+						<label for="filled-in-box">Food</label>
+					<!-- </p>
+					<p> -->
+						<input type="checkbox" class="filled-in" id="filled-in-box" name="cutlure" />
+						<label for="filled-in-box">Culture</label>
+					<!-- </p>
+					<p> -->
+						<input type="checkbox" class="filled-in" id="filled-in-box" name="nightlife" />
+						<label for="filled-in-box">Night Life</label>
+					<!-- </p>
+					<p> -->
+						<input type="checkbox" class="filled-in" id="filled-in-box" name="shopping"/>
+						<label for="filled-in-box">Shopping</label>
+					<!-- </p>
+					<p> -->
+						<input type="checkbox" class="filled-in" id="filled-in-box" name="transportation" />
+						<label for="filled-in-box">Transportation</label>
+					<!-- </p>
+					<p> -->
+						<input type="checkbox" class="filled-in" id="filled-in-box" name="religion" />
+						<label for="filled-in-box">Faith</label>
+					<!-- <p>
+					</p> -->
+						<input type="checkbox" class="filled-in" id="filled-in-box" name="outdoor" />
+						<label for="filled-in-box">Outdoor</label>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div> <!-- end of middle banner row -->
 </div>
