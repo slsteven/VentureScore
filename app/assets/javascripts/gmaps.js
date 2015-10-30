@@ -225,8 +225,14 @@ function initialize(){
 		var mapOptions = {
 			center: {lat: 40.524, lng: -97.884},
 			zoom: 4,
+
+			scrollwheel: false
+			
+
 			scrollwheel:false,
+
 		}
+
 	// };
 
 	//Creating instances of various Map objects
@@ -234,6 +240,15 @@ function initialize(){
 	service = new google.maps.places.PlacesService(map);
 	geocoder = new google.maps.Geocoder();
 	matrix = new google.maps.DistanceMatrixService();
+
+	 map.addListener('click', function()
+	   { 
+	  	  if(map) map.setOptions({ scrollwheel: true }); 
+	   });
+	 map.addListener('mouseout', function()
+	  	{ 
+	  	  if(map) map.setOptions({ scrollwheel: false });
+	    })
 
 }
 
