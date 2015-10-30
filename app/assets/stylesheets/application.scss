@@ -44,8 +44,11 @@ html {
 }
 .banner_text2 {
 	color: white;
-	
 }
+.center_banner_text {
+	text-align: center;
+}
+
 .banner {
 	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/e0/4d/9d/e04d9d29c3bf0b1f73eaa6ae88088c1f.gif");
 	background-repeat: no-repeat;
@@ -55,6 +58,11 @@ html {
 .background_image {
 	background: rgba(0, 0,0, 0.55);
 	height: 550px;
+}
+
+.banner2 {
+	background-color: whitesmoke;
+	margin-top: -20px;
 }
 
 // sidebar

@@ -21,57 +21,61 @@
 
 <!-- start of banner 2 -->
 
-<div class="container">
-	<div class="col s6 "></div>
-  <h3>Your score is..!</h3>
+<div class="banner2">
+	<div class="container">
+		<div class="center_banner_text col s6 offset-s3 grid-example">
+	  		<h3>Your score is..!</h3>
+	  		  <div class="chip">
+    				Tag
+    			<i class="material-icons">close</i>
+  				</div>
+  				  <div class="chip">
+    Tag
+    <i class="material-icons">close</i>
+  </div>
+	  	</div>
+	</div>
+	<hr>
+
+	<div class="row">
+		<div class="col s3 sidebar_text">
+			<p>Rank your interests from highest to lowest then pin a location on the map.</p>
+		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+		<div class="valign-wrapper">
+			<div class="test_guy">
+				<ul id="sortable">
+
+					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
+					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
+					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
+					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
+					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
+					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
+					<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
+
+					<!-- <li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="food"></span>Food</li>
+					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="culture"></span>Culture</li>
+					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="shopping"></span>Shopping</li>
+					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="health"></span>Health & Fitness</li>
+					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="transportation"></span>Transportation</li>
+					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="nightlife"></span>Nightlife</li>
+					<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="faith"></span>Faith</li>
+	 -->
+				</ul>
+					<input class="waves-effect waves-light btn" type="submit" id="interest">
+			</div>
+		</div>
+		</div>
+		<div class="col s9">
+
+			<!-- <div class="temp"></div> -->
+			<div id="map-canvas">
+				image of google maps
+			</div>
+
+		</div>
+	</div> <!-- end of middle banner row -->
 </div>
-<hr>
-
-<div class="row">
-	<div class="col s3 sidebar_text">
-		<p>Rank your interests from highest to lowest then pin a location on the map.</p>
-	<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-	<div class="valign-wrapper">
-		<div class="test_guy">
-			<ul id="sortable">
-
-				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
-				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
-				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
-				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
-				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
-				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
-				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
-
-				<!-- <li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="food"></span>Food</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="culture"></span>Culture</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="shopping"></span>Shopping</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="health"></span>Health & Fitness</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="transportation"></span>Transportation</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="nightlife"></span>Nightlife</li>
-				<li class="ui-state-default"><span class=" categories ui-icon ui-icon-arrowthick-2-n-s" name="faith"></span>Faith</li>
- -->
-			</ul>
-				<input class="waves-effect waves-light btn" type="submit" id="interest">
-		</div>
-	</div>
-	</div>
-	<div class="col s9">
-
-		<!-- <div class="temp"></div> -->
-		<div id="map-canvas">
-			image of google maps
-		</div>
-
-
-		<div id="map-canvas">
-			
-		</div>
-		<input type="submit" value="testing" class="test">
-
-	</div>
-</div> <!-- end of middle banner row -->
-
 <!-- <nav>
   <ul class="left hide-on-med-and-down show side_nav_width">
     <li><a href="#!">First Sidebar Link</a></li>
