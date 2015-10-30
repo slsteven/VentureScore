@@ -3,15 +3,15 @@
 	<div class="background_image">
 	<%= current_user %>
 		<div class="section no-pad-bot" id="index-banner">
-		<div class="container">
+		<div class="container banner1_text">
 		<br><br>
 
 			<h1 class="header center banner_title"><strong>Get Your Score</strong></h1>
 				<div class="row center">
-					<h5 class="header col s12 light banner_text2">Use our scoring system to find a location that aligns with your interests.</h5>
+					<h4 class="header col s12 light banner_text2">Rank your interests. Pin a location. Get MyRadius score.</h4>
 				</div>
 				<div class="row center">
-					<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+					<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Start Now</a>
 				</div>
 		<br><br>
 		</div>
@@ -20,47 +20,51 @@
 </div>  <!-- end of banner 1 -->
 
 <!-- start of banner 2 -->
-<hr>
+
 <div class="container">
+	<div class="col s6 "></div>
   <h3>Your score is..!</h3>
-  <p>dynamic banner will go here</p>
 </div>
 <hr>
+
 <div class="row">
-	<div class="col s3">
-		<p>Rank your interests from highest to lowest and find out your walking score.</p>
+	<div class="col s3 sidebar_text">
+		<p>Rank your interests from highest to lowest then pin a location on the map.</p>
 	<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-
+	<div class="valign-wrapper">
 		<div class="test_guy">
-			<!-- <ul>
-			  <li id="draggable" class="ui-state-highlight">Drag me down</li>
-			</ul> -->
-
-
-
 			<ul id="sortable">
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="7"></span>Food</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="6"></span>Museums and Art</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="5"></span>Shopping</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="4"></span>Health & Fitness</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="3"></span>Transit Access</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="2"></span>Clubs and Bars</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" name="1"></span>Faith</li>
+				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
+				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
+				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
+				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
+				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
+				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
+				<li class="#ffab91 deep-orange lighten-3 interest_text z-depth-3"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
 			</ul>
-				<input type="submit" id="interest">
+				<input class="waves-effect waves-light btn" type="submit" id="interest">
 		</div>
 	</div>
-
+	</div>
 	<div class="col s9">
-		<div class="temp"></div>
-		<!-- <div id="map-canvas">
+		<!-- <div class="temp"></div> -->
+		<div id="map-canvas">
 			image of google maps
-		</div> -->
-		<input type="submit" value="testing" class="test">
+		</div>
 	</div>
 </div> <!-- end of middle banner row -->
 
-
+<!-- <nav>
+  <ul class="left hide-on-med-and-down show side_nav_width">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <ul id="slide-out" class="side-nav">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+</nav> -->
 
  <script>
  $(document).ready(function(){

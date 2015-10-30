@@ -6,12 +6,13 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-  <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
 
-
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 
@@ -26,11 +27,13 @@
 <body>
   <nav>
     <div class="nav-wrapper">
+      <div class="nav_text">
       <a href="#" class="left logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        
         <li><a href="">Home</a></li>
         <!-- Modal Trigger -->
-        <li><a class="logo btn modal-trigger" href="#modal1">Login</a>
+        <li><a class="modal-trigger" href="#modal1">Login</a>
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal modal-fixed-footer">
@@ -42,6 +45,7 @@
           </div>
         </div></li>
         <li><a href="">Sign Up</a></li>
+      </div>
       </ul>
     </div>
   </nav>
@@ -65,31 +69,17 @@
 
 
 <%= yield %>
-
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="row">
       <div class="col s12">
-      
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          
-        </ul>
+          <div class="footer-copyright">
+          © 2015 Copyright Text
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-    © 2015 Copyright Text
-    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-    </div>
-  </div>
 </footer>
 
 
