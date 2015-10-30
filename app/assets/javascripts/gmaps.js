@@ -1,33 +1,12 @@
 /*Remember to check lengths and query amounts*/
-
-
 $(document).ready(function(){
-	
-	//When submit button is clicked,we 
 	$( "#interest" ).click(function(){
+		//grabs rankings of each category
 		var ranking = create_search_array();
-		// console.log(ranking)
+		//sends each category to be searched
 		getResults(ranking,current_location);
 	});	
-	function getAllDistances(results){
-		console.log(results)
-		var distanceArr = [];
-		for(var i = 0;i<results.length;i++){
-			getDistance(results[i],current_location,function(params){
-				distanceArr.push(params)
-				if(distanceArr.length == 1){
-					testing(distanceArr);
-				}
-			})
-		}
-	}
-
-	function testing(results){
-		console.log(results)
-	}
-	
-	
-
+	//sends a different search obj depending on the ctegory. callback is sent to getAllDistances
 	function getResults(ranking,current_location){
 		var results = [];
 		for (var i = 0;i<1/*ranking.length*/;i++){
@@ -141,18 +120,25 @@ $(document).ready(function(){
 			}
 		}
 	}
+
+	//Sends arrays to  distance matrix and adds 'distance' key to each search result.
+	//Callback sent to remove_far to remove all distances greater than 5 miles or 8000meters
+	function getAllDistances(results){
+		// console.log(results)
+		var distanceArr = [];
+		for(var i = 0;i<results.length;i++){
+			getDistance(results[i],current_location,function(params){
+				distanceArr.push(params)
+				if(distanceArr.length == 1){
+					remove_far(distanceArr);
+				}
+			})
+		}
+	}
 	
-	// $('.test').on('click',function(){
-	// 	var coordArr; 		
-	// 	performSearch(current_location, function(param){
-	// 		coordArr = param;
-	// 		var algoArr;
-	// 		getDistance(coordArr,current_location,function(param){
-	// 			algoArr = param
-	// 			console.log(algoArr)
-	// 		})
-	// 	});
-	// });
+	function remove_far(results){
+		console.log(results)
+	}
 
 	initialize();
 
