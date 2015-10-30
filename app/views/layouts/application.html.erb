@@ -26,7 +26,21 @@
   <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
 
   <%= csrf_meta_tags %>
-
+<script>
+  /* smooth scrolling sections */
+   $('a[href*=#]:not([href=#])').click(function() {
+       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+           var target = $(this.hash);
+           target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+           if (target.length) {
+               $('html,body').animate({
+                   scrollTop: target.offset().top - 50
+               }, 1000);
+               return false;
+           }
+       }
+   });
+</script>
 
 </head>
 <body>
@@ -42,14 +56,54 @@
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal modal-fixed-footer">
-          <div class="logo modal-content">
-                <h1>login/signup form</h1>
+          <div class="modal-content">
+            <h1>login form</h1>
+
+            <form action="/sessions" method="post">
+              <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+              <input type="text" name='user[email]'>
+              <label for='email'>Email</label>
+              <input type="password" name='user[password]'>
+              <label for='password'>Password</label>
+            
+
+              <div class="modal-footer">
+                <input type="submit" value="Login">
+            </form>
+              <a href="/auth/facebook" class="modal-action modal-close  waves-green btn-flat">Login with Facebook</a>
           </div>
-          <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close  waves-green btn-flat">Login</a>
+            </div>
         </div></li>
-        <li><a href="">Sign Up</a></li>
+        <li><a class="modal-trigger" href="#modal2">Sign Up</a>
+          <div id="modal2" class="modal modal-fixed-footer">
+            <div class="logo modal-content">
+              <h1>signup form</h1>
+              <form action="/users" method="post">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                
+                <input type="text" name='user[name]'>
+                <label for='name'>Name</label>
+                
+                <input type="text" name='user[email]'>
+                <label for='email'>Email</label>
+                
+                <input type="text" name='user[password]'>
+                <label for='password'>Password</label>
+                
+                <input type="text" name='user[password_confirmation]'>
+                <label for='password_confirmation'>Password Confirmation</label>
+
+                <div class="modal-footer">
+                  <input type="Submit" value="Sign up">
+                </div>
+              </form>
+            </div>
+          </div>
+        </li>
       </div>
       </ul>
     </div>
@@ -96,6 +150,7 @@
 $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
+
   });
   </script>   
 
