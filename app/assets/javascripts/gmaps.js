@@ -420,7 +420,7 @@ function initialize(){
 function create_search_array(){
 	var myVals = [];
 	var count = 1
-	$( '.categories' ).each(function(){
+	$( '.interest_text' ).each(function(){
 	  	myVals.push({
 	  		category: $(this).attr('name'),
 	  		rank: count,
