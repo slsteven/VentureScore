@@ -1,30 +1,172 @@
+/*Remember to check lengths and query amounts*/
 $(document).ready(function(){
+	$( "#interest" ).click(function(){
+		//grabs rankings of each category
+		var ranking = create_search_array();
+		//sends each category to be searched
+		getResults(ranking,current_location);
+	});	
+	//sends a different search obj depending on the ctegory. callback is sent to getAllDistances
+	function getResults(ranking,current_location){
+		var results = [];
+		for (var i = 0;i<1/*ranking.length*/;i++){
+			switch(ranking[i].category){
+				case "food":
+					var searchObj = {
+						query: "resaurants, food, cafe,",
+						location:current_location,
+						radius: 1000,
+						types:["restaurant"],
+					}
+					performSearch(searchObj,(i+1),function(params){
+						console.log(params)
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "culture":
+					//block
+					var searchObj = {
+						query: "museum",
+						location: current_location,
+						radius: 1000,
+						types:["museum"],
+					}
+					performSearch(searchObj,(i+1),function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "shopping":
+					//block
+					var searchObj = {
+						query: "shopping mall",
+						location: current_location,
+						radius: 1000,
+						types:["shopping_mall"],
+					}
+					performSearch(searchObj,(i+1),function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "health":
+					//block
+					var searchObj = {
+						query:"park",
+						location:current_location,
+						radius: 1000,
+						types:["park"],
+					}
+					performSearch(searchObj,(i+1),function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "transportation":
+					//block
+					var searchObj = {
+						query: "bus station",
+						location: current_location,
+						radius: 1000,
+						types:["bus_station"],
+					}
+					performSearch(searchObj,(i+1),function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "nightlife":
+					//block
+					var searchObj = {
+						query: "nightclub",
+						location:current_location,
+						radius:1000,
+						types:["night_club"],
+					}
+					performSearch(searchObj,(i+1),function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				case "faith":
+					//block
+					var searchObj = {
+						query:"church",
+						location:current_location,
+						radius:1000,
+						types:["church"],
+					}
+					performSearch(searchObj,(i+1),function(params){
+						results.push(params);
+						if(results.length == 1){
+							getAllDistances(results);
+						}
+					})
+					break;
+				default:
+					return;
+			}
+		}
+	}
+
+	//Sends arrays to  distance matrix and adds 'distance' key to each search result.
+	//Callback sent to remove_far to remove all distances greater than 5 miles or 8000meters
+	function getAllDistances(results){
+		// console.log(results)
+		var distanceArr = [];
+		for(var i = 0;i<results.length;i++){
+			getDistance(results[i],current_location,function(params){
+				distanceArr.push(params)
+				if(distanceArr.length == 1){
+					remove_far(distanceArr);
+				}
+			})
+		}
+	}
+	
+	//filters results further than 5miles or 8000 meters
+	function remove_far(results){
+		var filtered = [];
+		for(var i = 0;i<results.length;i++){
+			var temp = [];
+			for(var j=0;j<results[i].length;j++){
+				if(results[i][j].distance <= 8000){
+					temp.push(results[i][j]);
+				}
+			}
+			filtered.push(temp);
+		}
+		calculateScore(filtered)
+	}
+
+	function calculateScore(arr){
+		var range1;
+		var range2;
+		var range3;
+		var range4;
+		var range5;
+
+
+	}
 	
 
 
-$( "#interest" ).click(function(){
-	var myVals = [];
-	$( 'span' ).each(function(){
-  	myVals.push($(this).attr('name'));
-	});
-
-	console.log(myVals);
- });
 
 	initialize();
-	//USER THIS BLOCK TO GET PLACE DETAILS
-	// var det_request = {
-	// 	placeId: "ChIJP2AYtyd-j4AR-cNUt4A4wSY"
-	// }
-	// service.getDetails(det_request,function(place,status){
-	// 	console.log(place);
 
-	// })
-	// $('.test').on('click',function(){
-	// 	var input = $('#pac-input').val()
-	// 	console.log(input)
-
-	// })
 	var current_location;
 
 	var input = document.getElementById('pac-input'); //$('#pac-input').val()
@@ -86,19 +228,6 @@ $( "#interest" ).click(function(){
     infowindow.open(map, marker);
   });
 
-	// var test_coords = new google.maps.LatLng(37.7749295,-122.4194155)
-
-	$('.test').on('click',function(){
-		var coordArr; 		
-		performSearch(current_location, function(param){
-			coordArr = param;
-			var algoArr;
-			getDistance(coordArr,current_location,function(param){
-				algoArr = param
-				console.log(algoArr)
-			})
-		});
-	});
 });
 
 var map;
@@ -120,8 +249,11 @@ function initialize(){
 	// else{
 		var mapOptions = {
 			center: {lat: 40.524, lng: -97.884},
-			zoom: 4
+			zoom: 4,
+			scrollwheel:false,
+
 		}
+
 	// };
 
 	//Creating instances of various Map objects
@@ -130,20 +262,44 @@ function initialize(){
 	geocoder = new google.maps.Geocoder();
 	matrix = new google.maps.DistanceMatrixService();
 
+	//prevents map from scrolling down unless clicked first.
+	 map.addListener('click', function()
+	   { 
+	  	  if(map) map.setOptions({ scrollwheel: true }); 
+	   });
+	 map.addListener('mouseout', function()
+	  	{ 
+	  	  if(map) map.setOptions({ scrollwheel: false });
+	    })
+
+}
+
+//returns an object that ranks all of the categories. this will be used for searching gmaps db
+function create_search_array(){
+	var myVals = [];
+	var count = 1
+	$( '.categories' ).each(function(){
+	  	myVals.push({
+	  		category: $(this).attr('name'),
+	  		rank: count,
+	  	});
+	  	count ++;
+	});
+	return myVals
 }
 
 
-function performSearch(coords, callback){
+function performSearch(text_request, rank, callback){
 	//Location box should be dynamic and set based on the users location or input
 	// var locationBox = 
 
 	//Search obj for gMaps text search
-	text_request = {
-		query: "izakaya japanese food",
-		location: coords,
-		radius: 1000,
-		types: ["restaurant","bar","food"]
-	}
+	// text_request = {
+	// 	query: "izakaya japanese food",
+	// 	location: coords,
+	// 	radius: 1000,
+	// 	types: ["restaurant","bar","food"]
+	// }
 	// radar_request = {
 	// 	keyword: "izakaya japanese food",
 	// 	location: locationBox,
@@ -152,6 +308,7 @@ function performSearch(coords, callback){
 	// }
 	// service.textSearch(text_request,latLngArr)
 
+
 	service.textSearch(text_request, function(results,status){
 		var searchResults =[];
 		if(status == google.maps.places.PlacesServiceStatus.OK){
@@ -159,7 +316,8 @@ function performSearch(coords, callback){
 				searchResults.push({
 					name:results[i].name,
 					lat:results[i].geometry.location.lat(),
-					lng:results[i].geometry.location.lng()
+					lng:results[i].geometry.location.lng(),
+					rank: rank,
 				});
 			};
 			callback(searchResults);
@@ -179,6 +337,8 @@ function getDistance(arr,origin,callback){
 	for(var i = 0; i<arr.length;i++){
 		destinationArr.push(new google.maps.LatLng(arr[i].lat,arr[i].lng));
 	};
+
+
 	//gMaps Method to Calculate distance between 2 coordinates
 	matrix.getDistanceMatrix({
 		origins: [origin],
