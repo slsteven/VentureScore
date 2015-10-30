@@ -342,35 +342,160 @@ $(document).ready(function(){
     });
 	function showScore(score){
 		infowindow.open(map, marker);
-		infowindow.setContent("<h1>"+score+"/100</h1>")
+		infowindow.setContent("<div id='container-rpm'></div>")
 		 // The RPM gauge
-	    $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
-	        yAxis: {
-	            min: 0,
-	            max: 100,
-	            title: {
-	                text: 'VentureScore'
-	            }
-	        },
+	    $(function () {
 
-	        series: [{
-	            name: 'RPM',
-	            data: [score],
-	            dataLabels: {
-	                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-	                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
-	                       '<span style="font-size:12px;color:silver">* 1000 / min</span></div>'
-	            },
-	            tooltip: {
-	                valueSuffix: ' revolutions/min'
-	            }
-	        }]
+    var gaugeOptions = {
 
-	    }));
+        chart: {
+            type: 'solidgauge'
+        },
 
-	}
+        title: null,
 
-});
+        pane: {
+            center: ['50%', '85%'],
+            size: '100%',
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc',
+                background: 'black'
+            }
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        // the value axis55BF3B
+        yAxis: {
+            stops: [
+                [0.1, '#DF5353'], // green
+                [0.5, '#DDDF0D'], // yellow
+                [0.9, '#55BF3B'] // red
+            ],
+            lineWidth: 0,
+            minorTickInterval: null,
+            tickPixelInterval: 400,
+            tickWidth: 0,
+            title: {
+                y: -70
+            },
+            labels: {
+                y: 0
+            }
+        },
+
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true,
+                    animation: false
+                }
+            }
+        }
+    };
+
+    // The speed gauge
+    $('#container-speed').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 200,
+            title: {
+                text: 'Speed'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'Speed',
+            data: [80],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">km/h</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ' km/h'
+            }
+        }]
+
+    }));
+
+    // The RPM gauge
+    $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 100,
+            title: {
+                text: 'VentureScore'
+            }
+        },
+
+        series: [{
+            name: 'RPM',
+            data: [score],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">/100</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ' revolutions/min'
+            }
+        }]
+
+    }));
+
+    // Bring life to the dials
+    setInterval(function () {
+        // Speed
+        var chart = $('#container-speed').highcharts(),
+            point,
+            newVal,
+            inc;
+
+        if (chart) {
+            point = chart.series[0].points[0];
+           
+            newVal = point.y;
+
+            if (newVal < 0 || newVal > 200) {
+                newVal = point.y - inc;
+            }
+
+            point.update(newVal);
+        }
+
+        // RPM
+        chart = $('#container-rpm').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+           
+            newVal = point.y;
+
+            if (newVal < 0 || newVal > 5) {
+                newVal = point.y;
+            }
+
+            point.update(newVal);
+        }
+    }, 2000);
+
+
+	})
+
+};
 var map;
 var service;
 var geocorder;
@@ -484,77 +609,11 @@ function getDistance(arr,origin,callback){
 
 	})	
 
-$(function () {
-
-    var gaugeOptions = {
-
-        chart: {
-            type: 'solidgauge'
-        },
-
-        title: null,
-
-        pane: {
-            center: ['50%', '85%'],
-            size: '140%',
-            startAngle: -90,
-            endAngle: 90,
-            background: {
-                backgroundColor: 'transparent',
-                innerRadius: '60%',
-                outerRadius: '100%',
-                shape: 'arc'
-
-            }
-        },
-
-        tooltip: {
-            enabled: false
-        },
-
-        // the value axis
-        yAxis: {
-            stops: [
-                [0.1, '#55BF3B'], // green
-                [0.5, '#DDDF0D'], // yellow
-                [0.9, '#DF5353'] // red
-            ],
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickPixelInterval: 400,
-            tickWidth: 0,
-            title: {
-                y: -70
-            },
-            labels: {
-                y: 16
-            }
-        },
-
-        plotOptions: {
-            solidgauge: {
-                dataLabels: {
-                    y: 5,
-                    borderWidth: 0,
-                    useHTML: true
-                }
-            }
-        }
     };
-
-// function gauage_score(gauge_score){
-
-   
-// }
-//     // Bring life to the dials
-   
-
-
-
 
 
 })
-}
+
 
 //Call back to handle errors during search
 function errorStatus(status){
