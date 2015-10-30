@@ -107,7 +107,7 @@ $(document).ready(function(){
 						query:"religion",
 						location:current_location,
 						radius:1000,
-						types:["church","mosque","synagogue","hindu_temple","place_of_worship"],
+						types:["church","mosque","synagogue","hindu_temple"],
 					}
 					performSearch(searchObj,(i+1),"faith",function(params){
 						results.push(params);
@@ -228,19 +228,19 @@ $(document).ready(function(){
 		var total = 0
 		for(key in sums){
 			if(sums[key][1] == 1){
-				total += sums[key][0] * 0.35/*0.2254*/
+				total += sums[key][0] * 0.28/*0.2254*/
 			}
 			else if(sums[key][1] == 2){
-				total += sums[key][0] * 0.3 /*0.1979*/
+				total += sums[key][0] * 0.24 /*0.1979*/
 			}
 			else if(sums[key][1] == 3){
-				total += sums[key][0] * 0.25 /*0.1703*/
+				total += sums[key][0] * 0.20 /*0.1703*/
 			}
 			else if(sums[key][1] == 4){
-				total += sums[key][0] * 0.2 /*0.1428*/
+				total += sums[key][0] * 0.16 /*0.1428*/
 			}
 			else if(sums[key][1] == 5){
-				total += sums[key][0] * 0.15 /*0.1153*/
+				total += sums[key][0] * 0.12 /*0.1153*/
 			}
 			else if(sums[key][1] == 6){
 				total += sums[key][0] * 0.0879
