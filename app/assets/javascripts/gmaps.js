@@ -220,6 +220,7 @@ $(document).ready(function(){
 		}
 		console.log(sums)
 		weighted_score(sums);
+		category_graph(sums);
 	}
 
 	function weighted_score(sums){
@@ -228,6 +229,7 @@ $(document).ready(function(){
 		var total = 0
 		for(key in sums){
 			if(sums[key][1] == 1){
+
 				total += sums[key][0] * 0.28/*0.2254*/
 			}
 			else if(sums[key][1] == 2){
@@ -241,6 +243,7 @@ $(document).ready(function(){
 			}
 			else if(sums[key][1] == 5){
 				total += sums[key][0] * 0.12 /*0.1153*/
+
 			}
 			else if(sums[key][1] == 6){
 				total += sums[key][0] * 0.0879
@@ -251,6 +254,53 @@ $(document).ready(function(){
 		}
 		total = Math.round(total);
 		showScore(total);
+	}
+
+	function category_graph(totals){
+		var data_obj = {
+	        chart: {
+	            type: 'column'
+	        },
+	        title: {
+	            text: 'Category Breakdown'
+	        },
+	 
+	        xAxis: {
+	            // categories: [],
+	            crosshair: true
+	        },
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: 'Score'
+	            }
+	        },
+	        tooltip: {
+	            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+	                '<td style="padding:0"><b>{point.y:.1f} points</b></td></tr>',
+	            footerFormat: '</table>',
+	            shared: true,
+	            useHTML: true
+	        },
+	        plotOptions: {
+	            column: {
+	                pointPadding: 0.2,
+	                borderWidth: 0
+	            }
+	        },
+	        series: []
+	    }
+	    for(category in totals){
+	    	data_obj.series.push({
+	    		name: category,
+	    		data: [totals[category][0]]
+	    	});
+	    	// data_obj.xAxis["categories"].push(category)
+	    };
+		$(function () {
+		    $('#container').highcharts(data_obj);
+		});
 	}
 	function distanceVal(distance){
 		var value = 0
@@ -491,7 +541,6 @@ $(document).ready(function(){
             point.update(newVal);
         }
     }, 2000);
-
 
 	})
 
