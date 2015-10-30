@@ -84,7 +84,11 @@ html {
 	min-height: 600px;
 	z-index: -1;
 }
+.breakdown_button {
+	margin-left: auto;
+	margin-right: auto;
 
+}
 // sidebar
 .side_nav_width {
 	width: 100px;
@@ -134,7 +138,7 @@ html {
 }
 
 #map-canvas{
-	height:600px;
+	height:650px;
 	}
 #container-rpm{
 	width: 300px;
