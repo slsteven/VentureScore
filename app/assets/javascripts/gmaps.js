@@ -639,6 +639,10 @@ function initialize(){
 		center: {lat: 40.524, lng: -97.884},
 		zoom: 4,
 		scrollwheel: false
+<<<<<<< HEAD
+=======
+
+>>>>>>> 52aed25029a26cf07b527d3bf669bdd91cefa8c7
 	}
 
 	//Creating instances of various Map objects
