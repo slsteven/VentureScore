@@ -416,11 +416,11 @@ $(document).ready(function(){
 	    
 	    $( "#interest" ).click(function(){
 // <<<<<<< HEAD
-// 			//grabs rankings of each category
-// 			ranking = create_search_array();
-// 			//sends each category to be searched
-// 			getResults(ranking,current_location);
-// 			// infowindow.open(map, marker);
+			//grabs rankings of each category
+			ranking = create_search_array();
+			//sends each category to be searched
+			getResults(ranking,current_location);
+			// infowindow.open(map, marker);
 // 		});		
 //     });
 // =======
@@ -439,33 +439,33 @@ $(document).ready(function(){
 		// infowindow.open(map, marker);
 		// infowindow.setContent("<div id='container-rpm'></div>")
 		// infowindow.setContent(score)
-		var boxText = document.createElement("div");
-        boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: black; padding: 5px;";
-	    boxText.innerHTML = "<p>"+score+"</p>";
+		// var boxText = document.createElement("div");
+  //       boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: black; padding: 5px;";
+	 //    boxText.innerHTML = "<p>"+score+"</p>";
 
-		var myOptions = {
-			content: boxText,
-			disableAutoPan: false,
-			maxWidth: 0,
-			pixelOffset: new google.maps.Size(-140, 0),
-			zIndex: null,
-			boxStyle: { 
-			  // background: "url('tipbox.gif') no-repeat"
-			  opacity: 0.95,
-			  width: "100px",
-			  height:"100px",
-			  overflow:"scroll"
-			 },
-			closeBoxMargin: "0px 0px 0px 0px",
-			// closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
-			infoBoxClearance: new google.maps.Size(1, 1),
-			isHidden: false,
-			pane: "floatPane",
-			enableEventPropagation: false,
-		};
+		// var myOptions = {
+		// 	content: boxText,
+		// 	disableAutoPan: false,
+		// 	maxWidth: 0,
+		// 	pixelOffset: new google.maps.Size(-140, 0),
+		// 	zIndex: null,
+		// 	boxStyle: { 
+		// 	  // background: "url('tipbox.gif') no-repeat"
+		// 	  opacity: 0.95,
+		// 	  width: "100px",
+		// 	  height:"100px",
+		// 	  overflow:"scroll"
+		// 	 },
+		// 	closeBoxMargin: "0px 0px 0px 0px",
+		// 	// closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+		// 	infoBoxClearance: new google.maps.Size(1, 1),
+		// 	isHidden: false,
+		// 	pane: "floatPane",
+		// 	enableEventPropagation: false,
+		// };
 
-		var ib = new InfoBox(myOptions);
-		ib.open(map, marker);
+		// var ib = new InfoBox(myOptions);
+		// ib.open(map, marker);
 		
 
 		 // The RPM gauge

@@ -2,14 +2,14 @@ class UsersController < ApplicationController
 	skip_before_filter :verify_authenticity_token
 
 	def home
-		@xola = HTTParty.get('https://dev.xola.com/api/experiences?geo=121, 44', headers: {'X-API-KEY' => 'OPewt0d8EdEE-volspBJCKSGhiNCwwcQCR4ZIAcGITs'})
+		@xola = HTTParty.get('https://dev.xola.com/api/experiences?geo=121,44',headers:{'X-API-KEY'=>'OPewt0d8EdEE-volspBJCKSGhiNCwwcQCR4ZIAcGITs'})
 	end
 
 	def create
 		user = User.new(user_params)
 		# user = User.create(name: params[:Name], email: params[:Email], password: params[:password], password: params[:password_confirmation])
 		if user.save
-			flash[:success] = "User created"
+			flash[:success] = 'User created'
 			last_user = User.last
 			log_in user
 		# redirect_to "/users/#{last_user.id}"
