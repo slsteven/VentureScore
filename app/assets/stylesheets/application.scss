@@ -28,7 +28,8 @@ html {
 }
 
 .nav-wrapper {
-  background-color: whitesmoke;
+  // background-color: whitesmoke;
+  background-color: #363636;
 }
 
 .nav_text {
@@ -38,6 +39,7 @@ html {
 .nav_text a {
 	color: rgb(248, 150, 0);
 	font-size: 18px;
+	font-weight: 200px;
 }
 
 .modal-content {
@@ -48,6 +50,7 @@ html {
 	color:white;
 	margin-top: 180px;
 	font-size: 80px;
+	font-weight: 200;
 
 }
 .banner1_text2 {
@@ -75,11 +78,20 @@ html {
 
 .banner2 {
 	background-color: whitesmoke;
-	height: 100vh;
-	min-height: 600px;
+	
 }
+
+.banner2_media img {
+	width: 350px;
+	height: 400px;
+	text-align: center;
+	padding-top:25px;
+	
+}
+
+
 .banner3 {
-	background-color:whitesmoke;
+	background-color:#363636;
 	height: 100vh;
 	min-height: 600px;
 	z-index: -1;
@@ -89,6 +101,9 @@ html {
 	margin-right: auto;
 
 }
+
+
+
 // sidebar
 .side_nav_width {
 	width: 100px;
@@ -97,9 +112,14 @@ html {
 	height: 500px;
 }
 .sidebar_text p {
+	font-weight: 200;
 	font-size: 20px;
-	padding:15px;
+	color: rgb(248, 150, 0);
+	margin: 18px;
 	text-align: center;
+	border: 1px solid rgb(248, 150, 0);
+	// border: 1px solid #a7e2c7;
+	//color: rgb(248, 150, 0)
 }
 
 .interest_button {
@@ -109,6 +129,7 @@ html {
 .interest_text {
 	margin-top: 5px;
 	margin-bottom: 5px;
+	border-radius: 2px;
 	// box-shadow: 3px 3px 1px #888888;
 }
 .interest_text span {
@@ -122,13 +143,18 @@ html {
 	text-align: left;
 }
 
+#sortable ul {
+	background-color: black;
+	border: 1px solid;
+}
+
 #sortable li {
-	background-color: rgb(248, 150, 0);
+	background-color: white;
 	text-align: center;
     vertical-align: middle;
     position: relative;
     padding: 10px;
-    color: white;
+    color: #999;
 }
 .test_guy {
 	
@@ -139,7 +165,12 @@ html {
 
 #map-canvas{
 	height:650px;
+	z-index: -1px;
 	}
+
+.blurb {
+
+}
 #container-rpm{
 	width: 300px;
 	height: 200px;
