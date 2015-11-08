@@ -31,6 +31,9 @@ gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'rails-footnotes', '~> 4.0'
 gem 'omniauth-facebook'
+
+gem 'pry'
+gem 'httparty'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+	skip_before_filter :verify_authenticity_token
+
 	def home
+		@xola = HTTParty.get('https://dev.xola.com/api/experiences?geo=121, 44', headers: {'X-API-KEY' => 'OPewt0d8EdEE-volspBJCKSGhiNCwwcQCR4ZIAcGITs'})
 	end
 
 	def create
@@ -17,6 +20,17 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def verify
+		HTTParty.get(params[:apiUrl], headers: {'Authorization' => params[:authHeader]})
+		head :ok
+	end
+
+	def xola
+		# xola = HTTParty.get("https://dev.xola.com/api/experiences?lng=#{params[:lng]}&lat=#{params[:lat]}", headers: {'X-API-KEY' => 'OPewt0d8EdEE-volspBJCKSGhiNCwwcQCR4ZIAcGITs'})
+		xola = HTTParty.get("https://dev.xola.com/api/experiences?geo=#{params[:lat]},#{params[:lng]},250", headers: {'X-API-KEY' => 'OPewt0d8EdEE-volspBJCKSGhiNCwwcQCR4ZIAcGITs'})
+
+		render json: xola.to_json
+	end
 
 	private
 	def user_params
