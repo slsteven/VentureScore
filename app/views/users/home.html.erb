@@ -6,7 +6,7 @@
 			<div class="container banner1_text">
 				<h1 class="header center banner_title"><strong>Know Your Surroundings</strong></h1>
 				<div class="row center">
-					<h4 class="header col s12 light banner1_text2">Rank your interests. Pick a location. Get VentureScore.</h4>
+					<h4 class="header col s12 light banner1_text2">Rank your interests. Pick a location. Get your VentureScore.</h4>
 					<a href="#banner3" id="download-button" class="btn-large waves-light orange">Get My Score</a>
 				</div>
 			</div>
@@ -16,22 +16,22 @@
 
 
 <div id="banner2">
-	<div class="slider" style="margin-top:25px;">
-    <ul class="slides" style="width:800">
+	<div class="slider" id="b2test" style="margin-top:25px;">
+    <ul class="slides" style="width:800px;">
       <li>
-        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-        <div class="caption left-align">
-          <h3>Find a travel destination that fits your your needs!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        <img  src="http://cdn.earthporm.com/wp-content/uploads/2013/12/The-Ultimate-Guide-to-Traveling-When-You%E2%80%99re-Broke.jpg"> <!-- random image -->
+        <div class="caption left-align banner2_text">
+          <h3>Your compatibility for a location.</h3>
+          <h5 class="light grey-text text-lighten-2"></h5>
         </div>
       </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-        <div class="caption right-align">
+     <!--  <li>
+        <img src="http://i.huffpost.com/gen/1047688/images/o-TRAVELING-ALONE-facebook.jpg"> 
+        <div class="caption right-align banner2_text">
           <h3>Right Aligned Caption</h3>
           <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </div>
@@ -58,7 +58,10 @@
 					<li class="interest_text z-depth-1" name="faith"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
 				</ul>
 			</div>  
-			
+
+			<!-- testing advanced search menu -->
+			<p style="font-size:15px;">Advanced</p>
+	
 			
 
 			<p>2. Enter a destination.<input id="pac-input" class="controls" type="text" style="text-align:center;" placeholder="San Francisco, CA, United States..."></p>
@@ -70,23 +73,25 @@
 
 		<div class="col s9">
 			<!-- <div class="temp"></div> -->
-
-			<div id="map-canvas">
-				<div class="blurb"><h1>hi</h1></div>
-			</div>
+				<div id="map-canvas"></div>
 		</div> <!-- end of col9 -->
 	</div> <!-- end of row -->
-
-	
 </div>  <!-- end of banner 3 -->
-	
 
-
-
-<div id="banner4">
-	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+ <!-- <div class="overlay" onClick="style.pointerEvents='none'">
+<iframe class="emirates" src="http://routemap.emirates.com/english/?_q=eyJwbGF0Zm9ybVR5cGUiOiJEZXNrdG9wIiwic2VydmVyVGltZVN0YW1wIjoiMDgxMTIwMTUxMjM4MDAiLCJzZXJ2ZXJOYW1lIjoiRU9MLVNHLTMiLCJyZWxlYXNlTnVtYmVyIjoidjMuMi44IiwibGFuZ3VhZ2VDb2RlIjoiRU4iLCJjb3VudHJ5Q29kZSI6IkdMT0JBTCIsImNvdW50cnlSZWdpb24iOiJHTE9CQUx8R0xPQkFMIiwidmlzaXRvckxvZ2luU3RhdGUiOiJMb2dnZWQgT3V0IiwibWVtYmVyTG9naW5UeXBlIjoiUHVibGljIiwibWVtYmVyVGllciI6IldpdGhvdXQgUHJvZmlsZSIsInBhZ2VOYW1lIjoiLyBEZXN0aW5hdGlvbnMiLCJwYWdlQ2F0ZWdvcnkiOiJEZXN0aW5hdGlvbnMiLCJkb2N1bWVudFRpdGxlIjoiRGVzdGluYXRpb25zIHwgRW1pcmF0ZXMgIiwicGFnZVJlbG9hZCI6IkZhbHNlIn0=&_refPage=/english/destinations/&_refPlatform=ek-com#flights/AMD"></iframe>
+</div>
+ -->
+<div class="banner4 col s12">
 </div>
 
+
+
+
+<!-- <div id="banner4">
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+ -->
 
 
 <!-- <nav>
@@ -126,49 +131,3 @@ $(document).ready(function(){
 
 </script>
 
-<!-- 
-
-
-	<form action="/interests" method="post" class="col s12">
-		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-		<div class="row">
-			<div class="col s6 offset-s3 grid-example">
-				<input name="food" id="food" type="text" class="validate">
-				<label for="food">Food</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="culture" id="culture" type="text" class="validate">
-				<label for="culture">Culture</label>
-			</div>
-	
-			<div class="col s6 offset-s3 grid-example">
-				<input name="religion" id="religion" type="text" class="validate">
-				<label for="religion">Faith</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="health" id="health" type="text" class="validate">
-				<label for="health">Health</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="nightlife" id="nightlife" type="text" class="validate">
-				<label for="nightlife">Nightlife</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="shopping" id="shopping" type="text" class="validate">
-				<label for="shopping">Shopping</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="transportation" id="transportation" type="text" class="validate">
-				<label for="transportation">Transportation</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="outdoor" id="outdoor" type="text" class="validate">
-				<label for="outdoor">Outdoor</label>
-				<p>	<input type="submit" value="Check"></p>
-			</div>
-			</div>
-
-		</div>
-	</form>
-
--->
