@@ -327,6 +327,7 @@ $(document).ready(function(){
 	
 		return value;	
 	}
+
 	initialize();
 	var current_location;
 
@@ -366,11 +367,10 @@ $(document).ready(function(){
 			map.setZoom(13);  // Why 13? Because it looks good.
 		}
 		marker.setIcon(/** @type {google.maps.Icon} */({
-			url: "http://content.sportslogos.net/logos/6/235/full/5gzur7f6x09cv61jt16smhopl.gif", 
-			size: new google.maps.Size(71, 71),
-			origin: new google.maps.Point(0, 0),
-			anchor: new google.maps.Point(17, 34),
-			scaledSize: new google.maps.Size(35, 35)
+			url: "assets/home.png", 
+			// origin: new google.maps.Point(0, 0),
+			// anchor: new google.maps.Point(17, 34),
+			scaledSize: new google.maps.Size(20, 20)
 		}));
 
 	    marker.setPosition(place.geometry.location);
@@ -400,118 +400,117 @@ $(document).ready(function(){
 		infowindow.open(map, marker);
 		infowindow.setContent("<div id='container-rpm'></div>")
 
-		console.log(score)
 		 // The RPM gauge
 	    $(function () {
 
-    var gaugeOptions = {
+		    var gaugeOptions = {
 
-        chart: {
-            type: 'solidgauge'
-        },
+		        chart: {
+		            type: 'solidgauge'
+		        },
 
-        title: null,
+		        title: null,
 
-        pane: {
-            center: ['50%', '85%'],
-            size: '100%',
-            startAngle: -90,
-            endAngle: 90,
-            background: {
-                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-                innerRadius: '60%',
-                outerRadius: '100%',
-                shape: 'arc',
-                background: 'null'
-            }
-        },
+		        pane: {
+		            center: ['50%', '85%'],
+		            size: '100%',
+		            startAngle: -90,
+		            endAngle: 90,
+		            background: {
+		                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+		                innerRadius: '60%',
+		                outerRadius: '100%',
+		                shape: 'arc',
+		                background: 'null'
+		            }
+		        },
 
-        tooltip: {
-            enabled: false
-        },
+		        tooltip: {
+		            enabled: false
+		        },
 
-        // the value axis55BF3B
-        yAxis: {
-            stops: [
-                [0.1, '#DF5353'], // green
-                [0.5, '#DDDF0D'], // yellow
-                [0.9, '#55BF3B'] // red
-            ],
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickPixelInterval: 400,
-            tickWidth: 0,
-            title: {
-                y: -70
-            },
-            labels: {
-                y: 0
-            }
-        },
+		        // the value axis55BF3B
+		        yAxis: {
+		            stops: [
+		                [0.1, '#DF5353'], // green
+		                [0.5, '#DDDF0D'], // yellow
+		                [0.9, '#55BF3B'] // red
+		            ],
+		            lineWidth: 0,
+		            minorTickInterval: null,
+		            tickPixelInterval: 400,
+		            tickWidth: 0,
+		            title: {
+		                y: -70
+		            },
+		            labels: {
+		                y: 0
+		            }
+		        },
 
-        plotOptions: {
-            solidgauge: {
-                dataLabels: {
-                    y: 5,
-                    borderWidth: 0,
-                    useHTML: true,
-                    animation: false
-                }
-            }
-        }
-    };
+		        plotOptions: {
+		            solidgauge: {
+		                dataLabels: {
+		                    y: 5,
+		                    borderWidth: 0,
+		                    useHTML: true,
+		                    animation: false
+		                }
+		            }
+		        }
+		    };
 
-    // The speed gauge
-    $('#container-speed').highcharts(Highcharts.merge(gaugeOptions, {
-        yAxis: {
-            min: 0,
-            max: 200,
-            title: {
-                text: 'Speed'
-            }
-        },
+		    // The speed gauge
+		    $('#container-speed').highcharts(Highcharts.merge(gaugeOptions, {
+		        yAxis: {
+		            min: 0,
+		            max: 200,
+		            title: {
+		                text: 'Speed'
+		            }
+		        },
 
-        credits: {
-            enabled: false
-        },
+		        credits: {
+		            enabled: false
+		        },
 
-        series: [{
-            name: 'Speed',
-            data: [80],
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                       '<span style="font-size:12px;color:silver">km/h</span></div>'
-            },
-            tooltip: {
-                valueSuffix: ' km/h'
-            }
-        }]
+		        series: [{
+		            name: 'Speed',
+		            data: [80],
+		            dataLabels: {
+		                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+		                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+		                       '<span style="font-size:12px;color:silver">km/h</span></div>'
+		            },
+		            tooltip: {
+		                valueSuffix: ' km/h'
+		            }
+		        }]
 
-    }));
+	    }));
 
-    // The RPM gauge
-    $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
-        yAxis: {
-            min: 0,
-            max: 100,
-            title: {
-                text: 'VentureScore'
-            }
-        },
+	    // The RPM gauge
+	    $('#container-rpm').highcharts(Highcharts.merge(gaugeOptions, {
+	        yAxis: {
+	            min: 0,
+	            max: 100,
+	            title: {
+	                text: 'VentureScore'
+	            }
+	        },
 
-        series: [{
-            name: 'RPM',
-            data: [score],
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
-                       '<span style="font-size:12px;color:silver">/100</span></div>'
-            },
-            tooltip: {
-                valueSuffix: ' revolutions/min'
-            }
-        }]
+	        series: [{
+	            name: 'RPM',
+	            data: [score],
+	            dataLabels: {
+	                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+	                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+	                       '<span style="font-size:12px;color:silver">/100</span></div>'
+	            },
+	            tooltip: {
+	                valueSuffix: ' revolutions/min'
+	            }
+	        }]
 
     }));
 
@@ -553,99 +552,170 @@ $(document).ready(function(){
 	})
 
 };
-var ranking;
-var san_francisco = [];
-var los_angelese = []
-var new_york = [{}]
-var markers = [];
+
+
 
 //button to display hotel/lodging markers	
-$('#lodging').on('click',function(){
+$('#hotel').on('click',function(){
+	console.log('we in')
 	var search = {
 		bounds: map.getBounds(),
 		types:['lodging'],
 	}
-	//use nearby search to hard code nearby lodging
-	service.nearbySearch(search,function (results,status){
-		for(var k = 0;k<results.length;k++){
-			console.log(results[k].geometry.location.lat()+","+results[k].geometry.location.lng())
-		
-		}
-		if(status === google.maps.places.PlacesServiceStatus.OK){
+	// var sample = [{lat:37.792395,lng:-122.410504,type:"hotel"},{lat:37.7852279,lng:-122.40438899999998,type:"hotel"},{lat:37.787993,lng:-122.40194099999997,type:"bnb"},{lat:37.785628,lng:-122.41038500000002,type:"hotel"},{lat:37.7819923,lng:-122.4047607,type:"bnb"},{lat:37.787802,lng:-122.40881200000001,type:"bnb"},{lat:37.7925548,lng:-122.40079750000001,type:"bnb"},{lat:37.7947643,lng:-122.40052249999997},{lat:37.78685,lng:-122.411269},{lat:37.7883145,lng:-122.41046640000002,type:"bnb"},{lat:37.79152910000001,lng:-122.4095767,type:"hotel"},{lat:37.79512319999999,lng:-122.40434160000001},{lat:37.794372,lng:-122.39584300000001},{lat:37.79150449999999,lng:-122.4120312},{lat:37.78913,lng:-122.40724999999998,type:"hotel"},{lat:37.7915269,lng:-122.4104304,type:"bnb"},{lat:37.7905229,lng:-122.40494590000003,type:"hotel"},{lat:37.7872514,lng:-122.42551700000001,type:"hotel"},{lat:37.787231,lng:-122.426512,type:"hotel"},{lat:37.7923013,lng:-122.40906689999997,type:"bnb"}];
 
-			//itereate thorugh results and run getDistance fxn on it
-			for (var i = 0; i < results.length; i++) {
-				getDistance([results[i]],current_location,function (arr){
-					
-					for(var j=0;j<arr.length;j++){
-						var filterTest = filter(arr[j])
-						if(filterTest){
-							// getResults(ranking,filterTest.geometry.location)
+	var sample = [{lat:37.769462,lng:-122.426809,type:"hotel"},{lat:37.779294,lng:-122.426909,type:"hotel"},{lat:37.773030,lng:-122.423849,type:"bnb"},{lat:37.767757,lng:-122.429016,type:"bnb"},{lat:37.766408,lng:-122.423298,type:"bnb"},{lat:37.765219,lng:-122.416476,type:"hotel"},{lat:37.775012,lng:-122.409955,type:"bnb"},{lat:37.777748,lng:-122.408852,type:"hotel"},{lat:37.77832,lng:-122.412965,type:"bnb"},{lat:37.774042,lng:-122.41453,type:"bnb"},{lat:37.777128,lng:-122.412722,type:"bnb"},]
 
-							var MARKER_PATH = 'https://maps.gstatic.com/intl/en_us/mapfiles/marker_green';
-							var markerLetter = String.fromCharCode('A'.charCodeAt(0) + i);
-							var markerIcon = MARKER_PATH + markerLetter + '.png';
-							markers[j] = new google.maps.Marker({
-								map:map,
-								position: arr[j].geometry.location,
-								animation: google.maps.Animation.DROP,
-								icon: "/assets/mapicons/number_1.png"
-							})
-							markers[j].placeResult = arr[j];
-						}
-					}
-				
-					// console.log(arr)
-					
-				},[results[i]]);
+	for(var i = 0;i<sample.length;i++){
+		if(sample[i].type == "hotel"){
+			console.log("in if")
+			var icon = {
+				url: "assets/hotel.png", 
+				origin: new google.maps.Point(0, 0),
+				anchor: new google.maps.Point(17, 34),
+				scaledSize: new google.maps.Size(20, 20)
 			}
-			// If the user clicks a hotel marker, show the details of that hotel
-			// in an info window.
-			
-			// console.log(markers)
-			// console.log(results)
-			// google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-			// setTimeout(dropMarker(i), i * 100);
-			// addResult(results[i], i);
-			
+			var marker = new google.maps.Marker({
+				map:map,
+				position: new google.maps.LatLng(sample[i].lat,sample[i].lng),
+				animation: google.maps.Animation.DROP,
+				icon: icon,
+				type:"hotel"
+			})
 		}
-    });
+		else if(sample[i].type == "bnb"){
+			var icon = {
+				url: "assets/bnb.png", 
+				origin: new google.maps.Point(0, 0),
+				anchor: new google.maps.Point(17, 34),
+				scaledSize: new google.maps.Size(20, 20)
+			}
+			var marker = new google.maps.Marker({
+				map:map,
+				position: new google.maps.LatLng(sample[i].lat,sample[i].lng),
+				animation: google.maps.Animation.DROP,
+				icon: icon,
+				type:"bnb"
+			})
+		}
+		  //create new bounds object
+	  var bounds = new google.maps.LatLngBounds();
+	  //iterates through all coordinates to extend bounds
+	  for(var j = 0;j<sample.length;j++){
+	  	var latLng = new google.maps.LatLng(sample[j].lat,sample[j].lng)
+	    bounds.extend(latLng);
+	  };
+	  //recenters map around bounds
+	  map.fitBounds(bounds);
+
+	    
+	
+	google.maps.event.addListener(marker, 'click', function() {
+		
+		var boxText = document.createElement("div");
+        
+		if(this.type == "bnb"){
+			boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: black; padding: 5px;";
+		    boxText.innerHTML = "<img class='info_img' id='img_4' src='assets/bnb-4.png'>";
+		}else{
+			boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: black; padding: 5px;";
+		    boxText.innerHTML = "<img class='info_img' id='img_5' src='assets/hotel-1.png'>";
+		}
+		var myOptions = {
+			content: boxText,
+			disableAutoPan: false,
+			maxWidth: 0,
+			pixelOffset: new google.maps.Size(-140, 0),
+			zIndex: null,
+			boxStyle: { 
+			  // background: "url('tipbox.gif') no-repeat"
+			  opacity: 0.95,
+			  width: "500px",
+			  height:"500px",
+			  overflow:"scroll"
+			 },
+			closeBoxMargin: "0px 0px 0px 0px",
+			// closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+			infoBoxClearance: new google.maps.Size(1, 1),
+			isHidden: false,
+			pane: "floatPane",
+			enableEventPropagation: false,
+		};
+
+		var ib = new InfoBox(myOptions);
+			ib.open(map, marker);
+		})
+	}
+
+
+
+	//use nearby search to hard code nearby lodging
+	// service.nearbySearch(search,function (results,status){
+	// 	for(var k = 0;k<results.length;k++){
+	// 		console.log(results[k].geometry.location.lat()+","+results[k].geometry.location.lng())
+		
+	// 	}
+	// 	if(status === google.maps.places.PlacesServiceStatus.OK){
+
+	// 		//itereate thorugh results and run getDistance fxn on it
+	// 		for (var i = 0; i < results.length; i++) {
+	// 			getDistance([results[i]],current_location,function (arr){
+					
+	// 				for(var j=0;j<arr.length;j++){
+	// 					var filterTest = filter(arr[j])
+	// 					if(filterTest){
+	// 						// getResults(ranking,filterTest.geometry.location)
+
+	// 						var MARKER_PATH = 'https://maps.gstatic.com/intl/en_us/mapfiles/marker_green';
+	// 						var markerLetter = String.fromCharCode('A'.charCodeAt(0) + i);
+	// 						var markerIcon = MARKER_PATH + markerLetter + '.png';
+	// 						markers[j] = new google.maps.Marker({
+	// 							map:map,
+	// 							position: arr[j].geometry.location,
+	// 							animation: google.maps.Animation.DROP,
+	// 							icon: "/assets/mapicons/number_1.png"
+	// 						})
+	// 						markers[j].placeResult = arr[j];
+	// 					}
+	// 				}
+				
+	// 				// console.log(arr)
+					
+	// 			},[results[i]]);
+	// 		}
+	// 		// If the user clicks a hotel marker, show the details of that hotel
+	// 		// in an info window.
+			
+	// 		// console.log(markers)
+	// 		// console.log(results)
+	// 		// google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+	// 		// setTimeout(dropMarker(i), i * 100);
+	// 		// addResult(results[i], i);
+			
+	// 	}
+ //    });
+	
 });
+
+
 		
 
 var map;
 var service;
 var geocorder;
 var matrix;
-var maker;
+var marker;
 var autocomplete;
 var infowindow
 
 //initializes map
 function initialize(){
-// <<<<<<< HEAD
-// =======
-// 	//if the geolocation arrray exists, we insert the LatLng into the query object
-// 	// if (geolocation){
-// 	// 	var mapOptions = {
-// 	// 		center: {lat: geolocation[0], lng: geolocation[1]},
-// 	// 		zoom: 4
-// 	// 	}
-// 	// }
-// 	//otherwise we use the center of the united states as default
-// 	// else{
 
-
-// >>>>>>> 92113bd9e9a28671295a0b3db0a07ae0e0165c3d
 	var mapOptions = {
 		center: {lat: 40.524, lng: -97.884},
 		zoom: 4,
-		scrollwheel: false
-// <<<<<<< HEAD
-// =======
-// 	}
-// >>>>>>> 92113bd9e9a28671295a0b3db0a07ae0e0165c3d
-
+		scrollwheel: false,
+		icon: "assets/home.png"
 	}
 
 	//Creating instances of various Map objects
