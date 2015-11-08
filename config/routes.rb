@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  root'users#home'
  
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
 
-  get '/home' => 'users#home'
   post '/users' => 'users#create'
   get '/index' => 'users#index'
 
   post '/interests' => 'interests#create'
+  post '/verify', to: 'users#verify'
 end

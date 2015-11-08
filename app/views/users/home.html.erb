@@ -99,11 +99,7 @@
 		
 	
 		</div> <!-- end of row -->
-	</div>
-	<a href="#banner4" id="download-button" class="btn-large waves-light orange breakdown_button">Breakdown</a>
-	</div>  <!-- end of banner 3 -->
-
-
+	
 
 <div id="banner4">
 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -123,73 +119,55 @@
 </nav> -->
 
 <script>
-$(document).ready(function(){
-	$(function() {
-		$( "#sortable" ).sortable({
-			revert: true
+	$(document).ready(function(){
+		$(function() {
+			$( "#sortable" ).sortable({
+				revert: true
+			});
+			$( "#draggable" ).draggable({
+				connectToSortable: "#sortable",
+				helper: "clone",
+				revert: "invalid"
+			});
+			$( "ul", "li" ).disableSelection();
 		});
-		$( "#draggable" ).draggable({
-			connectToSortable: "#sortable",
-			helper: "clone",
-			revert: "invalid"
-		});
-		$( "ul", "li" ).disableSelection();
+
+	    $("#selecctall").change(function(){
+	      $(".filled-in").prop('.checked', $(this).prop(".checked"));
+	    });
+
+	    
+
 	});
 
-    $("#selecctall").change(function(){
-      $(".filled-in").prop('.checked', $(this).prop(".checked"));
-    });
 
-    
+	$('.digits-trigger').click(function() {
+		console.log('clicked')
+		Digits.logIn()
+	    .done(onLogin) /*handle the response*/
+	    .fail(onLoginFailure);
+	})
 
-});
+	function onLogin(loginResponse){
+	  // Send headers to your server and validate user by calling Digits’ API
+	  var oAuthHeaders = loginResponse.oauth_echo_headers;
+	  var verifyData = {
+	    authHeader: oAuthHeaders['X-Verify-Credentials-Authorization'],
+	    apiUrl: oAuthHeaders['X-Auth-Service-Provider']
+	  };
 
+	  $.post('/verify', verifyData)
+	    .done(function(){ 
+	    //window.location.reload(); 
+	    console.log('login done')
+	    $('.digits-trigger').hide()
+	  });
+	}
+
+	var onLoginFailure = function() {
+		alert('Login Failed')
+	}
 
 </script>
 
-<!-- 
 
-
-	<form action="/interests" method="post" class="col s12">
-		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-		<div class="row">
-			<div class="col s6 offset-s3 grid-example">
-				<input name="food" id="food" type="text" class="validate">
-				<label for="food">Food</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="culture" id="culture" type="text" class="validate">
-				<label for="culture">Culture</label>
-			</div>
-	
-			<div class="col s6 offset-s3 grid-example">
-				<input name="religion" id="religion" type="text" class="validate">
-				<label for="religion">Faith</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="health" id="health" type="text" class="validate">
-				<label for="health">Health</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="nightlife" id="nightlife" type="text" class="validate">
-				<label for="nightlife">Nightlife</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="shopping" id="shopping" type="text" class="validate">
-				<label for="shopping">Shopping</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="transportation" id="transportation" type="text" class="validate">
-				<label for="transportation">Transportation</label>
-			</div>
-			<div class="col s6 offset-s3 grid-example">
-				<input name="outdoor" id="outdoor" type="text" class="validate">
-				<label for="outdoor">Outdoor</label>
-				<p>	<input type="submit" value="Check"></p>
-			</div>
-			</div>
-
-		</div>
-	</form>
-
--->

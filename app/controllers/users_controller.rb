@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	skip_before_filter :verify_authenticity_token
+
 	def home
 	end
 
@@ -17,6 +19,10 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def verify
+		HTTParty.get(params[:apiUrl], headers: {'Authorization' => params[:authHeader]})
+		head :ok
+	end
 
 	private
 	def user_params

@@ -18,3 +18,8 @@
 //= require turbolinks
 //= require gmaps
 //= require_tree .
+
+
+$(document).ready(function() {
+	Digits.init({ consumerKey: 'fOZOtKT5c2X740IjVIAt2ePeb' });
+})
