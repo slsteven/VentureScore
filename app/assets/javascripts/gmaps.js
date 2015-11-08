@@ -302,6 +302,33 @@ $(document).ready(function(){
 		    $('#container').highcharts(data_obj);
 		});
 	}
+
+	function getExperiences(lng, lat) {
+    markers = [];
+
+		$.ajax({
+		  url: '/xola',
+		  data: {lng: lng, lat: lat},
+		  success: function(experiences) {
+		  	
+		    for (var i = 0; i < experiences.data.length; i++) {
+		      var experience = experiences.data[i]
+		      var latlng = new google.maps.LatLng(experience.geo.lat, experience.geo.lng);
+
+		      var pin = new google.maps.Marker({
+		        map: map,
+		        icon: "http://s23.postimg.org/ggk8xl1o7/pin.png",
+		        position: latlng,
+		        draggable: false,
+		        animation: google.maps.Animation.DROP
+		      });
+
+		      markers.push(pin);
+		    }
+		  }
+		});
+	}
+
 	function distanceVal(distance){
 		var value = 0
 		if (distance < 482){
@@ -332,7 +359,7 @@ $(document).ready(function(){
 	infowindow = new google.maps.InfoWindow();
 	marker = new google.maps.Marker({
 		map: map,
-		draggable: true,
+		draggable: false,
 		anchorPoint: new google.maps.Point(0, -29)
 	});
 
@@ -345,8 +372,6 @@ $(document).ready(function(){
 		var longitude = place.geometry.location.lng()
 
 		current_location = place.geometry.location
-
-
 
 	    if (!place.geometry) {
 			window.alert("Autocomplete's returned place contains no geometry");
@@ -371,6 +396,7 @@ $(document).ready(function(){
 	    marker.setPosition(place.geometry.location);
 	    marker.setVisible(true);
 
+
 	    var address = '';
 	    if (place.address_components) {
 	      address = [
@@ -383,13 +409,15 @@ $(document).ready(function(){
 	    // infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address + '<br>' + '<strong>' +  "Latitude: " + '</strong>' + latitude + '<strong>' +  "  Longitude:  " + '</strong>' +longitude)
 	    // infowindow.open(map, marker);
 	    $( "#interest" ).click(function(){
-			//grabs rankings of each category
-			var ranking = create_search_array();
-			//sends each category to be searched
-			getResults(ranking,current_location);
-			// infowindow.open(map, marker);
-		});		
-    });
+				//grabs rankings of each category
+				getExperiences(longitude,latitude)
+				var ranking = create_search_array();
+				//sends each category to be searched
+				getResults(ranking,current_location);
+				// infowindow.open(map, marker);
+			});
+  });
+
 	function showScore(score){
 		infowindow.open(map, marker);
 		infowindow.setContent("<div id='container-rpm'></div>")

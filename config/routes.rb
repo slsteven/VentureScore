@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   post '/interests' => 'interests#create'
   post '/verify', to: 'users#verify'
+  get '/xola', to: 'users#xola'
 end
