@@ -7,107 +7,86 @@
 				<h1 class="header center banner_title"><strong>Know Your Surroundings</strong></h1>
 				<div class="row center">
 					<h4 class="header col s12 light banner1_text2">Rank your interests. Pick a location. Get VentureScore.</h4>
-					<a href="#banner3" id="download-button" class="btn-large waves-light orange">Start Now</a>
+					<a href="#banner3" id="download-button" class="btn-large waves-light orange">Get My Score</a>
 				</div>
 			</div>
 		</div>
 	</div>    <!-- background image -->
 </div>  <!-- end of banner 1 -->
 
-<!-- start of banner 2 -->
 
-<!-- <div class="banner2">
-	<div class="container">
-		<div class="center_banner_text col s6 offset-s3 grid-example">
+<div id="banner2">
+	<div class="slider" style="margin-top:25px;">
+    <ul class="slides" style="width:800">
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Find a travel destination that fits your your needs!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<div class="banner3" id="banner3">
+	<div class="row">
+		<div class="col s3 sidebar_text">
 			
-		</div>
-	</div>
-</div> -->
+			<p>1. Rank your interests from highest to lowest!</p>
+	      
+		
+			<div class="test_guy">
+				<ul id="sortable">
+					<!-- added name to "li" -->
+					<li class="interest_text z-depth-1" name="food"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
+					<li class="interest_text z-depth-1" name="culture"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
+					<li class="interest_text z-depth-1" name="shopping"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
+					<li class="interest_text z-depth-1" name="health"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
+					<li class="interest_text z-depth-1" name="transportation"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
+					<li class="interest_text z-depth-1" name="nightlife"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
+					<li class="interest_text z-depth-1" name="faith"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
+				</ul>
+			</div>  
+			
+			
 
-	<div class="banner3" id="banner3">
-		<div class="row">
-			<div class="col s3 sidebar_text">
-				<p>1. Drag and drop to rank your interests from highest to lowest</p>
-				<div class="test_guy">
-					<ul id="sortable">
-						<!-- added name to "li" -->
-						<li class="interest_text z-depth-3" name="food"><span name="7"><i class="material-icons interest_icon valign">swap_vert</i></span>Food</li>
-						<li class="interest_text z-depth-3" name="culture"><span name="6"><i class="material-icons interest_icon valign">swap_vert</i></span>Museums and Art</li>
-						<li class="interest_text z-depth-3" name="shopping"><span name="5"><i class="material-icons interest_icon valign">swap_vert</i></span>Shopping</li>
-						<li class="interest_text z-depth-3" name="health"><span name="4"><i class="material-icons interest_icon valign">swap_vert</i></span>Health & Fitness</li>
-						<li class="interest_text z-depth-3" name="transportation"><span name="3"><i class="material-icons interest_icon valign">swap_vert</i></span>Transit Access</li>
-						<li class="interest_text z-depth-3" name="nightlife"><span name="2"><i class="material-icons interest_icon valign">swap_vert</i></span>Clubs and Bars</li>
-						<li class="interest_text z-depth-3" name="faith"><span name="1"><i class="material-icons interest_icon valign">swap_vert</i></span>Faith</li>
-					</ul>
-				</div>  
+			<p>2. Enter a destination.<input id="pac-input" class="controls" type="text" style="text-align:center;" placeholder="San Francisco, CA, United States..."></p>
 
-				<p>2. Enter your location</p>
-				<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+			<button class="btn waves-light orange interest_button" style="margin-left:18px" type="submit" id="interest" name="action">Submit
+				<i class="material-icons right">send</i></button>
+		</div>  <!-- end of test-guy col3 -->
 
-				<button class="btn waves-light interest_button" type="submit" id="interest" name="action">Submit
-					<i class="material-icons right">send</i></button>
-			</div>  <!-- end of test-guy col3 -->
 
 		<div class="col s9">
 			<!-- <div class="temp"></div> -->
+
 			<div id="map-canvas">
+				<div class="blurb"><h1>hi</h1></div>
 			</div>
+		</div> <!-- end of col9 -->
+	</div> <!-- end of row -->
 
-
-
-			<div class="row">
-	<div class="col 9 offset-s3 grid-example">
-		<div id="checkboxes">
-		<form action="#">
-		<p>
-			<input type="checkbox" class="filled-in" id="selectall" name="all"  />
-			<label for="selectall">Select all</label>
-			<!-- </p>
-			<p> -->
-			<input type="checkbox" class="filled-in" id="filled-in-box1" name="food"  />
-			<label for="filled-in-box1">Food</label>
-			<!-- </p>
-			<p> -->
-			<input type="checkbox" class="filled-in" id="filled-in-box2" name="culture"  />
-			<label for="filled-in-box2">Culture</label>
-			<!-- </p>
-			<p> -->
-			<input type="checkbox" class="filled-in" id="filled-in-box3" name="nightlife" />
-			<label for="filled-in-box3">Night Life</label>
-			<!-- </p>
-			<p> -->
-			<input type="checkbox" class="filled-in" id="filled-in-box4" name="shopping"/>
-			<label for="filled-in-box4">Shopping</label>
-			<!-- </p>
-			<p> -->
-			<input type="checkbox" class="filled-in" id="filled-in-box5" name="transportation" />
-			<label for="filled-in-box5">Transportation</label>
-			<!-- </p>
-			<p> -->
-			<input type="checkbox" class="filled-in" id="filled-in-box6" name="religion" />
-			<label for="filled-in-box6">Faith</label>
-			<!-- <p>
-			</p> -->
-			<input type="checkbox" class="filled-in" id="filled-in-box7" name="outdoor" />
-			<label for="filled-in-box7">Outdoor</label>
-			</p>
-		</div>
-	</form>
-	</div>
-</div>
-
-		
 	
-		</div> <!-- end of row -->
-	</div>
-	<a href="#banner4" id="download-button" class="btn-large waves-light orange breakdown_button">Breakdown</a>
-	</div>  <!-- end of banner 3 -->
+</div>  <!-- end of banner 3 -->
+	
 
 
 
 <div id="banner4">
 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </div>
+
 
 
 <!-- <nav>

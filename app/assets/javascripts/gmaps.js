@@ -414,7 +414,7 @@ $(document).ready(function(){
                 innerRadius: '60%',
                 outerRadius: '100%',
                 shape: 'arc',
-                background: 'black'
+                background: 'null'
             }
         },
 
@@ -564,12 +564,13 @@ function initialize(){
 	// }
 	//otherwise we use the center of the united states as default
 	// else{
-		var mapOptions = {
-			center: {lat: 40.524, lng: -97.884},
-			zoom: 4,
-			scrollwheel: false
-	
-		}
+
+
+	var mapOptions = {
+		center: {lat: 40.524, lng: -97.884},
+		zoom: 4,
+		scrollwheel: false
+	}
 
 	// };
 
@@ -579,6 +580,39 @@ function initialize(){
 	geocoder = new google.maps.Geocoder();
 	matrix = new google.maps.DistanceMatrixService();
 
+	map.set('styles', [
+    {
+        "stylers": [
+            {
+                "hue": "#ff1a00"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 33
+            },
+            {
+                "gamma": 0.5
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2D333C"
+            }
+        ]
+    }
+]);
+
+
+	// map.maptypes.set('map_style', styledMap);
 	//prevents map from scrolling down unless clicked first.
 	 map.addListener('click', function()
 	   { 
