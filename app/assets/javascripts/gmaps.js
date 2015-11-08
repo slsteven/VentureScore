@@ -397,8 +397,39 @@ $(document).ready(function(){
 		});		
     });
 	function showScore(score){
-		infowindow.open(map, marker);
-		infowindow.setContent("<div id='container-rpm'></div>")
+
+
+		// infowindow.open(map, marker);
+		// infowindow.setContent("<div id='container-rpm'></div>")
+		// infowindow.setContent(score)
+		var boxText = document.createElement("div");
+        boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: black; padding: 5px;";
+	    boxText.innerHTML = "<p>"+score+"</p>";
+
+		var myOptions = {
+			content: boxText,
+			disableAutoPan: false,
+			maxWidth: 0,
+			pixelOffset: new google.maps.Size(-140, 0),
+			zIndex: null,
+			boxStyle: { 
+			  // background: "url('tipbox.gif') no-repeat"
+			  opacity: 0.95,
+			  width: "100px",
+			  height:"100px",
+			  overflow:"scroll"
+			 },
+			closeBoxMargin: "0px 0px 0px 0px",
+			// closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+			infoBoxClearance: new google.maps.Size(1, 1),
+			isHidden: false,
+			pane: "floatPane",
+			enableEventPropagation: false,
+		};
+
+		var ib = new InfoBox(myOptions);
+		ib.open(map, marker);
+		
 
 		 // The RPM gauge
 	    $(function () {
@@ -564,7 +595,7 @@ $('#hotel').on('click',function(){
 	}
 	// var sample = [{lat:37.792395,lng:-122.410504,type:"hotel"},{lat:37.7852279,lng:-122.40438899999998,type:"hotel"},{lat:37.787993,lng:-122.40194099999997,type:"bnb"},{lat:37.785628,lng:-122.41038500000002,type:"hotel"},{lat:37.7819923,lng:-122.4047607,type:"bnb"},{lat:37.787802,lng:-122.40881200000001,type:"bnb"},{lat:37.7925548,lng:-122.40079750000001,type:"bnb"},{lat:37.7947643,lng:-122.40052249999997},{lat:37.78685,lng:-122.411269},{lat:37.7883145,lng:-122.41046640000002,type:"bnb"},{lat:37.79152910000001,lng:-122.4095767,type:"hotel"},{lat:37.79512319999999,lng:-122.40434160000001},{lat:37.794372,lng:-122.39584300000001},{lat:37.79150449999999,lng:-122.4120312},{lat:37.78913,lng:-122.40724999999998,type:"hotel"},{lat:37.7915269,lng:-122.4104304,type:"bnb"},{lat:37.7905229,lng:-122.40494590000003,type:"hotel"},{lat:37.7872514,lng:-122.42551700000001,type:"hotel"},{lat:37.787231,lng:-122.426512,type:"hotel"},{lat:37.7923013,lng:-122.40906689999997,type:"bnb"}];
 
-	var sample = [{lat:37.769462,lng:-122.426809,type:"hotel"},{lat:37.779294,lng:-122.426909,type:"hotel"},{lat:37.773030,lng:-122.423849,type:"bnb"},{lat:37.767757,lng:-122.429016,type:"bnb"},{lat:37.766408,lng:-122.423298,type:"bnb"},{lat:37.765219,lng:-122.416476,type:"hotel"},{lat:37.775012,lng:-122.409955,type:"bnb"},{lat:37.777748,lng:-122.408852,type:"hotel"},{lat:37.77832,lng:-122.412965,type:"bnb"},{lat:37.774042,lng:-122.41453,type:"bnb"},{lat:37.777128,lng:-122.412722,type:"bnb"},]
+	var sample = [{lat:37.769462,lng:-122.426809,type:"hotel"},{lat:37.779294,lng:-122.426909,type:"hotel"},{lat:37.773030,lng:-122.423849,type:"bnb"},{lat:37.767757,lng:-122.429016,type:"bnb"},{lat:37.766408,lng:-122.423298,type:"bnb"},{lat:37.765219,lng:-122.416476,type:"hotel"},{lat:37.775012,lng:-122.409955,type:"bnb"},{lat:37.777748,lng:-122.408852,type:"hotel"},{lat:37.77832,lng:-122.412965,type:"bnb"},{lat:37.774042,lng:-122.41453,type:"bnb"},{lat:37.777128,lng:-122.412722,type:"bnb"},{lat:37.772726,lng:-122.421533,type:"hotel"},{lat:37.774931,lng:-122.431102,type:"bnb"},{lat:37.766348,lng:-122.426597,type:"bnb"},{lat:37.765161,lng:-122.432090,type:"hotel"},{lat:37.763116,lng:-122.424079,type:"bnb"}]
 
 	for(var i = 0;i<sample.length;i++){
 		if(sample[i].type == "hotel"){
