@@ -1,6 +1,5 @@
 /*Remember to check lengths and query amounts*/
 $(document).ready(function(){
-	
 	//sends a different search obj depending on the ctegory. callback is sent to getAllDistances
 	function getResults(ranking,current_location){
 		var results = [];
@@ -152,6 +151,13 @@ $(document).ready(function(){
 		}
 		// console.log(filtered)
 		category_score(filtered)
+	}
+
+	//filters results for the nearbySearch
+	function filter(results,callback){
+		if(results.distance<=10000){
+			return results;
+		}
 	}
 
 	function category_score(arr,callback){
@@ -545,6 +551,62 @@ $(document).ready(function(){
 	})
 
 };
+
+var san_francisco = [];
+var los_angelese = []
+var new_york = [{}]
+var markers = [];
+
+//button to display hotel/lodging markers	
+$('#lodging').on('click',function(){
+	console.log(current_location)
+	var search = {
+		bounds: map.getBounds(),
+		types:['lodging'],
+	}
+	//use nearby search to hard code nearby lodging
+	service.nearbySearch(search,function (results,status){
+		console.log(results)
+		if(status === google.maps.places.PlacesServiceStatus.OK){
+
+			//itereate thorugh results and run getDistance fxn on it
+			for (var i = 0; i < results.length; i++) {
+				getDistance([results[i]],current_location,function (arr){
+					
+					for(var j=0;j<arr.length;j++){
+						var filterTest = filter(arr[j])
+						if(filterTest){
+							var MARKER_PATH = 'https://maps.gstatic.com/intl/en_us/mapfiles/marker_green';
+							var markerLetter = String.fromCharCode('A'.charCodeAt(0) + i);
+							var markerIcon = MARKER_PATH + markerLetter + '.png';
+							markers[j] = new google.maps.Marker({
+								map:map,
+								position: arr[j].geometry.location,
+								animation: google.maps.Animation.DROP,
+								icon: "/assets/mapicons/number_1.png"
+							})
+							markers[j].placeResult = arr[j];
+						}
+					}
+				
+					// console.log(arr)
+					
+				},[results[i]]);
+			}
+			// If the user clicks a hotel marker, show the details of that hotel
+			// in an info window.
+			
+			// console.log(markers)
+			// console.log(results)
+			// google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+			// setTimeout(dropMarker(i), i * 100);
+			// addResult(results[i], i);
+			
+		}
+    });
+});
+		
+
 var map;
 var service;
 var geocorder;
@@ -555,23 +617,12 @@ var infowindow
 
 //initializes map
 function initialize(){
-	//if the geolocation arrray exists, we insert the LatLng into the query object
-	// if (geolocation){
-	// 	var mapOptions = {
-	// 		center: {lat: geolocation[0], lng: geolocation[1]},
-	// 		zoom: 4
-	// 	}
-	// }
-	//otherwise we use the center of the united states as default
-	// else{
-		var mapOptions = {
-			center: {lat: 40.524, lng: -97.884},
-			zoom: 4,
-			scrollwheel: false
-	
-		}
+	var mapOptions = {
+		center: {lat: 40.524, lng: -97.884},
+		zoom: 4,
+		scrollwheel: false
 
-	// };
+	}
 
 	//Creating instances of various Map objects
 	map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions)
@@ -627,13 +678,21 @@ function performSearch(text_request, rank, category, callback){
 };
  //Takes array of objects which contains coordinates and names of searched locations
  //Origin a gMaps LatLng obj of the location being scored
-function getDistance(arr,origin,callback){
+ //nearbySearch paramater allows us to be able to call the function for both the score query AND the hardcoded lodging query
+function getDistance(arr,origin,callback,nearbySearch){
 	var destinationArr = [];
 	//Iterate through coordinates array and create a new LatLng obj for each value. This
 	//is to prepare for gMaps matrix search that will calculate distance and travel time
-	for(var i = 0; i<arr.length;i++){
-		destinationArr.push(new google.maps.LatLng(arr[i].lat,arr[i].lng));
-	};
+	if(nearbySearch){
+		for(var i = 0; i<nearbySearch.length;i++){
+			destinationArr.push(new google.maps.LatLng(nearbySearch[i].geometry.location.lat(),nearbySearch[i].geometry.location.lng()));
+		}
+	}
+	else{
+		for(var i = 0; i<arr.length;i++){
+			destinationArr.push(new google.maps.LatLng(arr[i].lat,arr[i].lng));
+		};
+	}
 
 	//gMaps Method to Calculate distance between 2 coordinates
 	matrix.getDistanceMatrix({
@@ -648,6 +707,7 @@ function getDistance(arr,origin,callback){
 		    //next we iterate through the destination results and store all distance values into
 		    //the original hash that was inputed into this function
 	        for (var j = 0; j < results.length; j++) {
+
 				arr[j]['distance'] = results[j].distance.value
 		    }
 		    callback(arr)
@@ -659,9 +719,9 @@ function getDistance(arr,origin,callback){
 	})	
 
     };
-
-
 })
+
+
 
 
 //Call back to handle errors during search
