@@ -224,7 +224,6 @@ $(document).ready(function(){
 				
 			}
 		}
-		console.log(sums)
 		weighted_score(sums);
 		category_graph(sums);
 	}
@@ -388,9 +387,10 @@ $(document).ready(function(){
 
 	    // infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address + '<br>' + '<strong>' +  "Latitude: " + '</strong>' + latitude + '<strong>' +  "  Longitude:  " + '</strong>' +longitude)
 	    // infowindow.open(map, marker);
+	    
 	    $( "#interest" ).click(function(){
 			//grabs rankings of each category
-			var ranking = create_search_array();
+			ranking = create_search_array();
 			//sends each category to be searched
 			getResults(ranking,current_location);
 			// infowindow.open(map, marker);
@@ -399,6 +399,8 @@ $(document).ready(function(){
 	function showScore(score){
 		infowindow.open(map, marker);
 		infowindow.setContent("<div id='container-rpm'></div>")
+
+		console.log(score)
 		 // The RPM gauge
 	    $(function () {
 
@@ -551,7 +553,7 @@ $(document).ready(function(){
 	})
 
 };
-
+var ranking;
 var san_francisco = [];
 var los_angelese = []
 var new_york = [{}]
@@ -559,14 +561,16 @@ var markers = [];
 
 //button to display hotel/lodging markers	
 $('#lodging').on('click',function(){
-	console.log(current_location)
 	var search = {
 		bounds: map.getBounds(),
 		types:['lodging'],
 	}
 	//use nearby search to hard code nearby lodging
 	service.nearbySearch(search,function (results,status){
-		console.log(results)
+		for(var k = 0;k<results.length;k++){
+			console.log(results[k].geometry.location.lat()+","+results[k].geometry.location.lng())
+		
+		}
 		if(status === google.maps.places.PlacesServiceStatus.OK){
 
 			//itereate thorugh results and run getDistance fxn on it
@@ -576,6 +580,8 @@ $('#lodging').on('click',function(){
 					for(var j=0;j<arr.length;j++){
 						var filterTest = filter(arr[j])
 						if(filterTest){
+							// getResults(ranking,filterTest.geometry.location)
+
 							var MARKER_PATH = 'https://maps.gstatic.com/intl/en_us/mapfiles/marker_green';
 							var markerLetter = String.fromCharCode('A'.charCodeAt(0) + i);
 							var markerIcon = MARKER_PATH + markerLetter + '.png';
