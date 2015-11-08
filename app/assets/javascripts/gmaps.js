@@ -436,9 +436,9 @@ $(document).ready(function(){
 	function showScore(score){
 
 
-		// infowindow.open(map, marker);
-		// infowindow.setContent("<div id='container-rpm'></div>")
-		// infowindow.setContent(score)
+		infowindow.open(map, marker);
+		infowindow.setContent("<div id='container-rpm'></div>")
+		infowindow.setContent(score)
 		// var boxText = document.createElement("div");
   //       boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: black; padding: 5px;";
 	 //    boxText.innerHTML = "<p>"+score+"</p>";
