@@ -66,10 +66,9 @@
 
 			<p>2. Enter a destination.<input id="pac-input" class="controls" type="text" style="text-align:center;" placeholder=""></p>
 
-			<button class="btn waves-light orange interest_button col s5" style="margin-left:5px" type="submit" id="interest" name="action">Submit
+			<button class="btn waves-light orange interest_button col s5" style="margin-left:18 px" type="submit" id="interest" name="action">Submit
 				<i class="material-icons right">send</i></button>
-			<button class="btn waves-light orange interest_button col s6" style="margin-left:5px" type="submit" id="hotel" name="action">Lodging
-				<i class="material-icons right">send</i></button>
+			<!--  -->
 		</div>  <!-- end of test-guy col3 -->
 
 
@@ -79,19 +78,7 @@
 		</div> <!-- end of col9 -->
 	</div> <!-- end of row -->
 </div>  <!-- end of banner 3 -->
-<div id='flight_search' class='row' style='background-color:'>
-	<div class='col s6'>
-		<h4>From</h4><input type="text" placeholder='' value='SFO San Francisco International Airport'>
-		<h4>To</h4><input type="text" placeholder='' value='DXB Dubai International Airport'>
-				
-	</div>	
-	<div class="col s6">
-		<h4>Departure</h4><input type="date" placeholder='Departure'>
-		<h4>Arrival</h4><input type="date" placeholder=''>
-	</div>
-		<button class="btn waves-light orange interest_button col s4" style="margin-left:5px" type="submit" id="hotel" name="action">Book Your flight now!<i class="material-icons right">send</i></button>
-	
-</div> <!-- end of row -->
+
 	
 
 
@@ -137,32 +124,32 @@
 
 
 
-	$('.digits-trigger').click(function() {
-		console.log('clicked')
-		Digits.logIn()
-	    .done(onLogin) /*handle the response*/
-	    .fail(onLoginFailure);
-	})
+	// $('.digits-trigger').click(function() {
+	// 	console.log('clicked')
+	// 	Digits.logIn()
+	//     .done(onLogin) /*handle the response*/
+	//     .fail(onLoginFailure);
+	// })
 
-	function onLogin(loginResponse){
-	  // Send headers to your server and validate user by calling Digits’ API
-	  var oAuthHeaders = loginResponse.oauth_echo_headers;
-	  var verifyData = {
-	    authHeader: oAuthHeaders['X-Verify-Credentials-Authorization'],
-	    apiUrl: oAuthHeaders['X-Auth-Service-Provider']
-	  };
+	// function onLogin(loginResponse){
+	//   // Send headers to your server and validate user by calling Digits’ API
+	//   var oAuthHeaders = loginResponse.oauth_echo_headers;
+	//   var verifyData = {
+	//     authHeader: oAuthHeaders['X-Verify-Credentials-Authorization'],
+	//     apiUrl: oAuthHeaders['X-Auth-Service-Provider']
+	//   };
 
-	  $.post('/verify', verifyData)
-	    .done(function(){ 
-	    //window.location.reload(); 
-	    console.log('login done')
-	    $('.digits-trigger').hide()
-	  });
-	}
+	//   $.post('/verify', verifyData)
+	//     .done(function(){ 
+	//     //window.location.reload(); 
+	//     console.log('login done')
+	//     $('.digits-trigger').hide()
+	//   });
+	// }
 
-	var onLoginFailure = function() {
-		alert('Login Failed')
-	}
+	// var onLoginFailure = function() {
+	// 	alert('Login Failed')
+	// }
 
 </script>
 
