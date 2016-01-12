@@ -308,20 +308,20 @@ function getDistance(arr,origin,callback){
 
 function distanceVal(distance){
 	var value = 0
-	if (distance < 482){
+	if (distance < 900){
+		value = 6
+	}
+	else if (distance < 1500){
 		value = 5
 	}
-	else if (distance < 1209){
-		value = 4.5
-	}
-	else if (distance < 1814){
+	else if (distance < 1800){
 		value = 4
 	}
-	else if (distance < 2401){
-		value = 3.5
+	else if (distance < 2000){
+		value = 3
 	}
 	else{
-		value = 3
+		value = 2
 	};
 
 	return value;	
@@ -334,19 +334,19 @@ function weighted_score(sums){
 	var total = 0
 	for(key in sums){
 		if(sums[key][1] == 1){
-			total += sums[key][0] * 0.28/*0.2254*/
+			total += sums[key][0] * 0.35/*0.28 0.2254*/
 		}
 		else if(sums[key][1] == 2){
-			total += sums[key][0] * 0.24 /*0.1979*/
+			total += sums[key][0] * 0.28/*0.24 0.1979*/
 		}
 		else if(sums[key][1] == 3){
-			total += sums[key][0] * 0.20 /*0.1703*/
+			total += sums[key][0] * 0.26/*0.20 0.1703*/
 		}
 		else if(sums[key][1] == 4){
-			total += sums[key][0] * 0.16 /*0.1428*/
+			total += sums[key][0] * 0.24/*0.16 0.1428*/
 		}
 		else if(sums[key][1] == 5){
-			total += sums[key][0] * 0.12 /*0.1153*/
+			total += sums[key][0] *  0.18/*0.12 0.1153*/
 		}
 		else if(sums[key][1] == 6){
 			total += sums[key][0] * 0.0879
